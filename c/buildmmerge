@@ -1,0 +1,6 @@
+# c/buildmmerge rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+gcc -x c -std=c99 pqueue.c mmerge.c testmmerge.c testmmergemain.c -largtable2 -lm -o testmmergemain
+gcc -x c -std=c99 pqueue.c mmerge.c testmmerge.c checktestmmerge.c -largtable2 -lcheck -lm -o checktestmmerge

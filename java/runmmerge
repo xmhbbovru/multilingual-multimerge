@@ -1,0 +1,5 @@
+# java/runmmerge rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+java -cp .:/usr/share/java/jopt-simple-4.5.jar com/zulazon/samples/TestMMerge $1 $2 $3

@@ -1,0 +1,13 @@
+# allbuildtar rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+tar czvf stuartsample.tar.gz \
+c/README.md c/pqueue.h c/pqueue.c c/mmerge.h c/mmerge.c c/testmmerge.h c/testmmerge.c c/testmmergemain.c c/checktestmmerge.c c/buildmmerge c/testmmergemain c/checktestmmerge c/testdata.txt c/Rout.txt c/*.pdf c/runvalgrind \
+cc/README.md cc/mmerge.h cc/mmerge.cc cc/testmmerge.h cc/testmmerge.cc cc/testmmergemain.cc cc/cppunittestmmerge.cc cc/buildmmerge cc/testmmergemain cc/cppunittestmmerge cc/testdata.txt cc/Rout.txt cc/*.pdf cc/runvalgrind cc/vgsupp \
+common/* \
+java/README.md java/com/zulazon/samples/* java/buildmmerge java/runmmerge java/testdata.txt java/Rout.txt java/*.pdf java/makejavadoc java/doc/* java/runjunittest \
+python/README.md python/mmerge.py python/testmmerge.py python/testdata.txt python/Rout.txt python/*.pdf python/mmerge.html python/testmmerge.html \
+ruby/README.md ruby/mmerge.rb ruby/testmmerge.rb ruby/testdata.txt ruby/Rout.txt ruby/*.pdf ruby/doc/* ruby/runrspec ruby/spec/* \
+README.md LICENSE *buildtar
+

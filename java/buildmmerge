@@ -1,0 +1,7 @@
+# java/buildmmerge rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+cd com/zulazon/samples
+javac -Xlint:all -cp .:/usr/share/java/junit4.jar:/usr/share/java/jopt-simple-4.5.jar MMerge.java GetCfgOutput.java GenerateDataOutput.java TestMMerge.java JUnitTestMMerge.java
+cd ../../..

@@ -1,0 +1,17 @@
+# .gitignore rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+/erlang/
+/erlangbuildtar
+/old/
+/c/testmmergemain
+/c/checktestmmerge
+/cc/testmmergemain
+/cc/cppunittestmmerge
+lin*.pdf
+pq*.pdf
+testdata.txt
+Rout.txt
+python/*.html
+*.pyc

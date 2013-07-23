@@ -1,0 +1,38 @@
+{
+  cond
+  Memcheck:Cond
+  ...
+  fun:main
+}
+{
+  value8
+  Memcheck:Value8
+  ...
+  fun:main
+}
+{
+  param
+  Memcheck:Param
+  write(buf)
+  ...
+  fun:main
+}
+{
+  cond
+  Memcheck:Cond
+  ...
+  fun:_Z15testmmerge_mainiPPc
+}
+{
+  value8
+  Memcheck:Value8
+  ...
+  fun:_Z15testmmerge_mainiPPc
+}
+{
+  param
+  Memcheck:Param
+  write(buf)
+  ...
+  fun:_Z15testmmerge_mainiPPc
+}

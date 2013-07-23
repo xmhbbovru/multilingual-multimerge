@@ -1,0 +1,6 @@
+# c/runvalgrind rev. 22 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+valgrind ./testmmergemain 100 100 -l
+
