@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 # Unit and timing test for ruby/mmerge.rb.
-# ruby/testmmerge.rb rev. 22 July 2013 by Stuart Ambler.
+# ruby/testmmerge.rb rev. 23 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -194,42 +194,6 @@ end
 #   Args: none.
 #   Returns: nothing.
 def self.main_func
-  # Test runs of using ruby 1.9.3p194, times in seconds (these were
-  # made with version different only in this comment):
-  #       k   each          n      pq     lin   heapq
-  #      10  10000     112784    0.51    0.53      NA
-  #      20  10000     147516    0.71    1.02      NA
-  #      30  10000     281216    1.38    2.53      NA
-  #      40  10000     392604    1.80    3.95      NA
-  #      50  10000     523509    2.45    6.32      NA
-  #      60  10000     600018    2.86    8.29      NA
-  #      70  10000     692973    3.80   11.20      NA
-  #      80  10000     749753    3.77   13.43      NA
-  #      90  10000     955510    4.82   18.82      NA
-  #     100  10000     996218    5.08   21.34      NA
-  #     160  10000    1642567    9.10   54.44      NA
-  #    1000  10000   10184172  125.34      NA      NA
-  #     100  20000    2223450   12.81   49.63      NA
-  #     100  40000    4154472   29.00      NA      NA
-  #     100  60000    6678275   56.84      NA      NA
-  #     100  80000    7438777   66.25      NA      NA
-  #     100 100000    9993974  104.30      NA      NA
-  # Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
-
-  # The statistical language R gave somewhat like a straight line for the
-  # plot of pq (priority queue version runtime) vs. log (k) * n, by removing
-  # comments from the above table with header row, and in R,
-  # source("commonanalyze.R").  Similarly lin vs. k * n (closer to straight).
-  # Or, do the fitting and plots with just the first 11 rows, resulting
-  # in smaller residuals and:
-  # pq  ~=   3.099e-01 +   1.058e-06 * log(k) * n
-  # lin ~=   8.246e-01 +   2.052e-07 *     k  * n
-  # The ruby version for the priority queue method is around a tenth to a
-  # fifth as fast as the C++ version, and for the linear method, around a
-  # quarter or a third as fast.
-
-  # The sorted output checked Ok vs. original sorted input.
-
   max_nr_input_ints = 500_000_000  # (Ok for 8GB RAM)
   default_nr_inputs = 1000
   default_ave_input_len = 10000

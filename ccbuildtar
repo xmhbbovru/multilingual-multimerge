@@ -1,5 +1,6 @@
-# ccbuildtar rev. 22 July 2013 by Stuart Ambler.
+#!/bin/sh
+# ccbuildtar rev. 23 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
-tar czvf stuartccsample.tar.gz cc/README.md cc/mmerge.h cc/mmerge.cc cc/testmmerge.h cc/testmmerge.cc cc/testmmergemain.cc cc/cppunittestmmerge.cc cc/buildmmerge cc/testmmergemain cc/cppunittestmmerge common/* cc/testdata.txt cc/Rout.txt cc/*.pdf cc/runvalgrind cc/vgsupp ccbuildtar
+tar czvf stuartccsample.tar.gz cc/README.md cc/mmerge.h cc/mmerge.cc cc/testmmerge.h cc/testmmerge.cc cc/testmmergemain.cc cc/cppunittestmmerge.cc cc/buildmmerge cc/testmmergemain cc/cppunittestmmerge common/* cc/testdata.txt cc/Rout.txt cc/*.pdf cc/runvalgrind cc/vgsupp ccbuildtar LICENSE

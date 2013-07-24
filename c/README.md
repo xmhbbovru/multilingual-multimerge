@@ -1,4 +1,4 @@
-c/README.md rev. 22 July 2013 by Stuart Ambler.
+c/README.md rev. 23 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -31,5 +31,8 @@ testdata.txt and the second two lines in Rout.txt contain data that with
 slight reformatting, makes the time table in the comments in testmmerge.c.
 The graphs in pdf files show the relation of actual data to fitted formulas.
 
-To run runvalgrind, install valgrind 3.7.0 and use e.g. (it runs slowly)
-valgrind --leak-check=yes ./testmmerge 100 100 -l
+To run runvalgrind, install valgrind 3.7.0
+
+make all builds the executables, runs the timing tests, analysis, and
+valgrind.  make clean deletes the results of all that.  Testing, not
+extensive, was done with GNU Make 3.81.

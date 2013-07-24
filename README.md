@@ -1,4 +1,4 @@
-README.md rev. 22 July 2013 by Stuart Ambler.
+README.md rev. 23 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -30,7 +30,10 @@ There are Python and R scripts usable in common for all the language versions
 to gather tables of timing data, analyze and plot, to see how fast the
 various versions run and how well the fitted formulas for time match the data.
 
-These were tested on an IBM Thinkpad SL510, 8 GB RAM, 64 bit Lubuntu 12.10.
+make all runs make all for all the individual languages; likewise for
+make clean.  Testing, not extensive, was done with GNU Make 3.81.
+
+Tested on an IBM Thinkpad SL510, 8 GB RAM, 64 bit Lubuntu 12.10.
 
 I'd be happy to hear from you.  My [website](http://www.zulazon.com) has a
 contact form.

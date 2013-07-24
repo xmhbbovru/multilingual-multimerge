@@ -1,0 +1,40 @@
+Example timing data
+
+Test runs of using python 2.7.3, times in seconds (these were
+made with version different only in this comment):
+     k   each          n      pq     lin   heapq
+    10  10000     115776    0.15    0.56    0.10
+    20  10000     248888    0.37    2.02    0.26
+    30  10000     312973    0.49    3.37    0.37
+    40  10000     429365    0.68    5.55    0.53
+    50  10000     495111    0.86    7.76    0.63
+    60  10000     602183    1.03   10.52    0.82
+    70  10000     727415    1.31   14.58    0.96
+    80  10000     862883    1.57   19.59    1.17
+    90  10000     939894    1.76   23.55    1.30
+   100  10000    1007288    1.90   28.38    1.41
+   160  10000    1672741    3.31   72.78    2.53
+  1000  10000   10028966   23.70      NA   20.45
+   100  20000    1908131    3.63   53.13    2.72
+   100  40000    4101997    7.73      NA    5.78
+   100  60000    5938777   11.14      NA    8.44
+   100  80000    7533894   14.23      NA   10.81
+   100 100000    9965317   18.88      NA   14.28
+Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
+
+The statistical language R gave an ok straight line for the plot of pq
+(priority queue version runtime) vs. log (k) * n, by removing comments
+from the above table with header row and in R source("commonanalyze.R").
+Similarly with lin vs. k * n.
+Or, the fitting and plots can be done with just the first 11 rows,
+resulting in smaller residuals and:
+pq  ~=   9.039e-02 +   3.851e-07 * log(k) * n
+lin ~=   8.126e-01 +   2.697e-07 *     k  * n
+The python version for the priority queue method looked about half as fast
+as the C++ version, and for the linear method, around a quarter.  Some
+of the heapq times are comparable to the C++ priority queue times.  For
+another set of test runs, python priority queue was a sixth to a quarter
+as fast as in C, and linear a fifty-sixth to a twenty-third, from
+common/comparetoc.txt.
+
+The sorted output checked Ok vs. original sorted input.

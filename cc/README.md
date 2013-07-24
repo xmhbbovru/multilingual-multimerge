@@ -1,4 +1,4 @@
-cc/README.md rev. 22 July 2013 by Stuart Ambler.
+cc/README.md rev. 23 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -36,6 +36,10 @@ slight reformatting, makes the time table in the comments in testmmerge.cc.
 The graphs in pdf files show the relation of actual data to fitted formulas.
 
 To run runvalgrind, install valgrind 3.7.0.
+
+make all builds the executables, runs the timing tests, analysis, and
+valgrind.  make clean deletes the results of all that.  Testing, not
+extensive, was done with GNU Make 3.81.
 
 Google's C++ style guide is available at
 http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml

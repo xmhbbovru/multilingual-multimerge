@@ -1,4 +1,4 @@
-// java/TestMMerge.java rev. 22 July 2013 by Stuart Ambler.  Tests MMerge.
+// java/TestMMerge.java rev. 23 July 2013 by Stuart Ambler.  Tests MMerge.
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -21,48 +21,6 @@ import joptsimple.OptionSpec;
 import com.zulazon.samples.GenerateDataOutput;
 import com.zulazon.samples.GetCfgOutput;
 import com.zulazon.samples.MMerge;
-
-// Test runs of TestMMerge.java using javac, java 1.7.0_21, times in seconds
-// (these were made with version different only in this comment, in input being
-// initialized starting with 0 instead of with 1, and in labels output):
-//       k   each          n      pq     lin   heapq
-//      10  10000      80139    0.06    0.04      NA
-//      20  10000     173780    0.07    0.08      NA
-//      30  10000     274899    0.08    0.21      NA
-//      40  10000     432652    0.11    0.37      NA
-//      50  10000     438984    0.11    0.43      NA
-//      60  10000     574387    0.22    0.50      NA
-//      70  10000     801194    0.24    0.79      NA
-//      80  10000     844374    0.20    1.43      NA
-//      90  10000     963635    0.22    1.81      NA
-//     100  10000    1019296    0.24    2.11      NA
-//     160  10000    1662089    0.43    7.15      NA
-//    1000  10000   10509733    9.65      NA      NA
-//     100  20000    2114335    0.40    7.14      NA
-//     100  40000    3992275    3.02      NA      NA
-//     100  60000    6348704    1.18      NA      NA
-//     100  80000    7989592    5.35      NA      NA
-//     100 100000   10304450    2.28      NA      NA
-// Note: there was wide variability at times; for instance the 1000 10000 test
-// took more often 3+ seconds, but the first time after a new version 9 seconds.
-// Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
-
-// The statistical language R gave a straight line with exceptions! plotting pq
-// (priority queue version runtime) vs. log (k) * n, by removing comments from
-// the above table with header row, and in R, source("commonanalyze.R").
-// Similarly with lin vs. k * n.
-// Or, the fitting and plots can be done with just the first 11 rows, resulting
-// in smaller residuals and:
-// pq  ~=   5.156e-02 +   4.432e-08 * log(k) * n
-// lin ~=  -2.491e-01 +   2.658e-08 *     k  * n
-
-// For the data here for k=20..160 and n=10000, the java version is two to four
-// times as fast as the C++ version (and some times are faster than for C), but
-// this is false for some other data here,// and the java times are quite
-// variable.  For instance, the 9+ for k=1000,n=10000 often becomes 3+ after
-// the first time it's run in a short time.  The plots also show variability.
-
-// The sorted output checked Ok vs. original sorted input.
 
 // Class for (non-JUnit) test framework.
 

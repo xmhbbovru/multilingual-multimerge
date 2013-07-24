@@ -1,0 +1,38 @@
+Example timing data.
+
+Test runs of testmmerge.cc using g++ 4.7.2, times in seconds:
+      k   each          n      pq     lin   heapq
+     10  10000     123321    0.08    0.09      NA
+     20  10000     144486    0.11    0.18      NA
+     30  10000     306217    0.24    0.57      NA
+     40  10000     422416    0.36    1.03      NA
+     50  10000     626893    0.55    1.91      NA
+     60  10000     629027    0.56    2.26      NA
+     70  10000     694090    0.65    2.91      NA
+     80  10000     856379    0.82    4.10      NA
+     90  10000     915657    0.88    4.90      NA
+    100  10000     978568    0.95    5.85      NA
+    160  10000    1683768    1.76   16.15      NA
+   1000  10000    9736963   13.15      NA      NA
+    100  20000    1939207    1.89   11.56      NA
+    100  40000    4191274    4.09      NA      NA
+    100  60000    6108395    5.95      NA      NA
+    100  80000    7358867    7.22      NA      NA
+    100 100000   10338002   10.12      NA      NA
+Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
+
+The statistical language R gave an ok straight line for the plot of pq
+(priority queue version runtime) vs. log (k) * n, by removing comments from
+the above table with header row, and in R, source("ccanalyze.R").
+Similarly with lin vs. k * n.
+Or, the fitting and plots can be done with just the first 11 rows, resulting
+in smaller residuals and:
+pq  ~=   3.645e-02 +   2.036e-07 * log(k) * n
+lin ~=   7.594e-03 +   5.985e-08 *     k  * n
+
+From another set of test runs, the C++ version for the priority queue method
+was a third to a half as fast the C version, and for the linear method,
+a seventh to a fifth, from common/comparetoc.txt.
+
+The sorted output checked Ok vs. original sorted input.
+

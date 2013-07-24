@@ -1,46 +1,11 @@
-// c/testmmerge.c rev. 22 July 2013 by Stuart Ambler.  Tests c/mmerge.c
+// c/testmmerge.c rev. 23 July 2013 by Stuart Ambler.  Tests c/mmerge.c
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
 // Tests multi-way merge of k sorted arrays of int, total length n, in memory,
 // using either a simple algorithm linear in k, or instead an algorithm that
 // uses a priority queue, logarithmic in k.  Either way, the dependence on n
-// is linear.  No exception or other error handling.
-
-// Test runs of testmmerge.c using g++ 4.7.2 (times in seconds):
-//       k   each          n      pq     lin   heapq
-//      10  10000     108959    0.02    0.01      NA
-//      20  10000     217839    0.06    0.05      NA
-//      30  10000     294631    0.08    0.09      NA
-//      40  10000     412029    0.13    0.18      NA
-//      50  10000     529476    0.18    0.27      NA
-//      60  10000     593906    0.20    0.36      NA
-//      70  10000     718702    0.26    0.50      NA
-//      80  10000     832477    0.30    0.67      NA
-//      90  10000     946184    0.36    0.85      NA
-//     100  10000    1077846    0.41    1.07      NA
-//     160  10000    1651778    0.70    2.62      NA
-//    1000  10000   10139363    6.28      NA      NA
-//     100  20000    2155689    0.83    2.13      NA
-//     100  40000    4311388    1.65      NA      NA
-//     100  60000    6467076    2.51      NA      NA
-//     100  80000    8622765    3.29      NA      NA
-//     100 100000   10778457    4.11      NA      NA
-// Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
-
-// The statistical language R gave an ok straight line for the plot of pq
-// (priority queue version runtime) vs. log (k) * n, by removing comments from
-// the above table with header row, and in R, source("ccanalyze.R").
-// Similarly with lin vs. k * n.
-// Or, the fitting and plots can be done with just the first 11 rows, resulting
-// in smaller residuals and:
-// pq  ~=   1.698e-03 +   8.318e-08 * log(k) * n
-// lin ~=   6.669e-03 +   9.890e-09 *     k  * n
-
-// The C version for the priority queue method is over twice as fast as the C++
-// version, and for the linear method, around six times as fast.
-
-// The sorted output checked Ok vs. original sorted input.
+// is linear.  Minimal error handling.
 
 #include <stdbool.h>
 #include <stdint.h>

@@ -1,4 +1,4 @@
-ruby/README.md rev. 22 July 2013 by Stuart Ambler.
+ruby/README.md rev. 23 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -29,3 +29,7 @@ command line) via ./runrspec    Version 2.14.1 of rspec was installed.
 testdata.txt and the second two lines in Rout.txt contain data that with
 slight reformatting, makes the time table in the comments in testmmerge.c.
 The graphs in pdf files show the relation of actual data to fitted formulas.
+
+make all runs the timing tests, analysis, and builds the rdoc.
+make clean deletes the results of all that.  Testing, not extensive,
+was done with GNU Make 3.81.
