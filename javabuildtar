@@ -1,7 +1,7 @@
 #!/bin/sh
-# javabuildtar rev. 23 July 2013 by Stuart Ambler.
+# javabuildtar rev. 24 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
-tar czvf stuartjavasample.tar.gz java/README.md java/com/zulazon/samples/* java/buildmmerge java/runmmerge common/* java/testdata.txt java/Rout.txt java/*.pdf java/makejavadoc java/doc/* java/runjunittest javabuildtar LICENSE
+tar czvf stuartjavasample.tar.gz java/Makefile java/README.md java/timing.txt java/com/zulazon/samples/* java/buildmmerge java/runmmerge common/* java/testdata.txt java/Rout.txt java/*.pdf java/makejavadoc java/doc/* java/runjunittest javabuildtar LICENSE
 

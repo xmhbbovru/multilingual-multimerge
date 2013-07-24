@@ -1,6 +1,6 @@
 #!/bin/sh
-# pythonbuildtar rev. 23 July 2013 by Stuart Ambler.
+# pythonbuildtar rev. 24 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
-tar czvf stuartpythonsample.tar.gz python/README.md python/mmerge.py python/testmmerge.py common/* python/testdata.txt python/Rout.txt python/*.pdf python/mmerge.html python/testmmerge.html pythonbuildtar LICENSE
+tar czvf stuartpythonsample.tar.gz python/Makefile python/README.md python/timing.txt python/mmerge.py python/testmmerge.py common/* python/testdata.txt python/Rout.txt python/*.pdf python/mmerge.html python/testmmerge.html pythonbuildtar LICENSE
