@@ -1,3 +1,7 @@
+python/timing.txt rev. 25 July 2013 by Stuart Ambler.
+Copyright (c) 2013 Stuart Ambler.
+Distributed under the Boost License in the accompanying file LICENSE.
+
 Example timing data
 
 Test runs of using python 2.7.3, times in seconds (these were
