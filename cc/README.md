@@ -14,12 +14,6 @@ Original intent was to make a more solid version of a program written for a
 phone tech interview question; adapted to fit the Google C++ style guide to a
 fair degree, for a code sample.
 
-After extracting stuartccsample.tar.gz, move the subdirectory common to the
-same level as the one in which this file and the rest are contained.  I.e.
-mv common ..
-The reason for this is that the contents of common are used by all the language
-vertions.
-
 To test, use scripts in the common subdirectory, which is on the same level as
 the cc directory containing this file: from the directory containing this file,
 

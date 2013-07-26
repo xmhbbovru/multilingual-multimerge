@@ -1,4 +1,4 @@
-python/README.md rev. 23 July 2013 by Stuart Ambler.
+python/README.md rev. 25 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -8,12 +8,6 @@ mmerge.py provides two merge methods for a list of sorted lists, output one
 sorted list, and a main function to test correctness of results and time
 the merge.  Tested with python 2.7.3 under lubuntu 12.10, intel processor,
 8 GB RAM.
-
-After extracting stuartpythonsample.tar.gz, move the subdirectory common to the
-same level as the one in which this file and the rest are contained.  I.e.
-mv common ..
-The reason for this is that the contents of common are used by all the language
-vertions.
 
 To test, use scripts in the common subdirectory, which is on the same level as
 the python directory containing this file.  From the directory containing this

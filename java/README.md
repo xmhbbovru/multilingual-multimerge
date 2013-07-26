@@ -1,4 +1,4 @@
-java/README.md rev. 23 July 2013 by Stuart Ambler.
+java/README.md rev. 25 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -10,12 +10,6 @@ the merge.  Compiled and test with java 1.7.0_25, OpenJDK Runtime Environment
 (IcedTea 2.3.10) (7u25-2.3.10-0ubunto0.12.10.2), OpenJDK 64-Bit Server VM build
 23.7-b01, mixed mode, under under lubuntu 12.10, intel processor, 8 GB RAM.
 Requires installation of jopt-simple (see below).
-
-After extracting stuartjavasample.tar.gz, move the subdirectory common to the
-same level as the one in which this file and the rest are contained.  I.e.
-mv common ..
-The reason for this is that the contents of common are used by all the language
-vertions.
 
 To build, first ensure that jopt-simple-4.5.jar is in /usr/share/java; or if
 it's somewhere else, edit runmmerge to put the new location in the javac

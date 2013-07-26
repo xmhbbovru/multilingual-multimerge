@@ -1,4 +1,4 @@
-c/README.md rev. 23 July 2013 by Stuart Ambler.
+c/README.md rev. 25 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -10,12 +10,6 @@ queue for use by mmerge.c.  testmmerge.c tests correctness of results and times
 the merge.  Compiled with gcc 4.7.2 under lubuntu 12.10, intel processor, 8 GB
 RAM.  Requires installation of argtable2, tested with version 12-1.  Ported
 from the C++ equivalent, with the addition of a priority queue implementation.
-
-After extracting stuartcsample.tar.gz, move the subdirectory common to the
-same level as the one in which this file and the rest are contained.  I.e.
-mv common ..
-The reason for this is that the contents of common are used by all the language
-vertions.
 
 To test, use scripts in the common subdirectory, which is on the same level as
 the c directory containing this file: from the directory containing this file,
