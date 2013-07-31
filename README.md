@@ -1,8 +1,8 @@
-README.md rev. 23 July 2013 by Stuart Ambler.
+README.md rev. 27 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
-# Multimerge Code Samples in C, C++, Java, Python, and Ruby
+# Multimerge Code Samples in C, C++, Java, Python, and Ruby (also some R).
 
 I wrote this code first in C as an answer to a tech interview question about how
 to merge k sorted arrays of ints into one sorted array.  It used the most
@@ -28,7 +28,8 @@ is built from scratch.
 
 There are Python and R scripts usable in common for all the language versions
 to gather tables of timing data, analyze and plot, to see how fast the
-various versions run and how well the fitted formulas for time match the data.
+various versions run, how well the fitted formulas for time match the data,
+and to compare the language versions.
 
 make all runs make all for all the individual languages; likewise for
 make clean.  Testing, not extensive, was done with GNU Make 3.81.

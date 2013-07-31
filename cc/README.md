@@ -1,4 +1,4 @@
-cc/README.md rev. 23 July 2013 by Stuart Ambler.
+cc/README.md rev. 31 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -20,14 +20,14 @@ the cc directory containing this file: from the directory containing this file,
 ../common/runtests.py ./testmmergemain >testdata.txt
 Rscript ../common/commonanalyze.R >Rout.txt
 
+testdata.txt and the second two lines in Rout.txt will contain data such as that
+in timing.txt.  The graphs in pdf files will show the relation of actual data to
+fitted formulas.
+
 testmmergemain has a main function that calls testmmerge_main.
 cppunittestmmerge defines a CppUnit test, and it too has a main function,
 that via CppUnit (version 1.12.1 installed) calls testmmerge_main with default
 (no) args.
-
-testdata.txt and the second two lines in Rout.txt contain data that with
-slight reformatting, makes the time table in the comments in testmmerge.cc.
-The graphs in pdf files show the relation of actual data to fitted formulas.
 
 To run runvalgrind, install valgrind 3.7.0.
 

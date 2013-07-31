@@ -1,4 +1,4 @@
-java/README.md rev. 25 July 2013 by Stuart Ambler.
+java/README.md rev. 31 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -26,12 +26,12 @@ file,
 ../common/runtests.py ./runmmerge >testdata.txt
 Rscript ../common/commonanalyze.R >Rout.txt
 
+testdata.txt and the second two lines in Rout.txt will contain data such as that
+in timing.txt.  The graphs in pdf files will show the relation of actual data to
+fitted formulas.
+
 JUnit4 can be used to run TestMMerge with default parameters (blank
 command line) via ./runjunittest   Version 4.10 of JUnit was installed.
-
-testdata.txt and the second two lines in Rout.txt contain data that with
-slight reformatting, makes the time table in the comments in testmmerge.java.
-The graphs in pdf files show the relation of actual data to fitted formulas.
 
 make all builds the class files, runs the timing tests, analysis, and
 builds the javadoc.  make clean deletes the results of all that.  Testing,

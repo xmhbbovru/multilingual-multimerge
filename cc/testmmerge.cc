@@ -1,4 +1,4 @@
-// cc/testmmerge.cc rev. 23 July 2013 by Stuart Ambler.  Tests cc/mmerge.cc.
+// cc/testmmerge.cc rev. 29 July 2013 by Stuart Ambler.  Tests cc/mmerge.cc.
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -208,17 +208,17 @@ int calc_display_stats(mm::IntVector lens, int ave_input_len) {
   }
   double mean_len =   static_cast<double>(tot_lens)
                     / static_cast<double>(nr_inputs);
-  double variance = 0;
+  double sum_sq_dev = 0;
   for (lens_it = lens.begin(); lens_it != lens.end(); ++lens_it) {
     double  diff = static_cast<double>(*lens_it) - mean_len;
-    variance += (diff * diff);
+    sum_sq_dev += (diff * diff);
   }
   std::cout << "nr_inputs "                 << nr_inputs
             << ", requested ave_input_len " << ave_input_len << std::endl
             << "their product "             << nr_inputs * ave_input_len
             << ", actual tot_lens "         << tot_lens << std::endl
             << "mean_len "                  << round(mean_len)
-            << ", std dev "                 << round(sqrt(variance
+            << ", std dev "                 << round(sqrt(sum_sq_dev
                                               / static_cast<double>(nr_inputs)))
             << ", min_len "                 << min_len
             << ", max_len "                 << max_len << std::endl;

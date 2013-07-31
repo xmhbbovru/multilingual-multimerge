@@ -1,4 +1,4 @@
-python/README.md rev. 25 July 2013 by Stuart Ambler.
+python/README.md rev. 31 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -16,6 +16,10 @@ file,
 ../common/runtests.py ./mmerge.py >testdata.txt
 Rscript ../common/commonanalyze.R >Rout.txt
 
+testdata.txt and the second two lines in Rout.txt will contain data such as that
+in timing.txt.  The graphs in pdf files will show the relation of actual data to
+fitted formulas.
+
 or to use unittest or nose (1.1.2 installed) as selected by code in
 testmmerge.py, but not produce testdata.txt,
 
@@ -24,10 +28,6 @@ testmmerge.py, but not produce testdata.txt,
 The desire of the test frameworks to consume the command line conflicted with
 the convention in these samples to use the command line to choose timing test
 parameters.  This accounts for the two ways above to run the tests.
-
-testdata.txt and the second two lines in Rout.txt contain data that with
-slight reformatting, makes the time table in the comments in testmmerge.py.
-The graphs in pdf files show the relation of actual data to fitted formulas.
 
 make all runs the timing tests, analysis, and builds the pydoc. 
 make clean deletes the results of all that.  Testing, not extensive,

@@ -1,4 +1,4 @@
-// java/TestMMerge.java rev. 23 July 2013 by Stuart Ambler.  Tests MMerge.
+// java/TestMMerge.java rev. 29 July 2013 by Stuart Ambler.  Tests MMerge.
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -184,10 +184,10 @@ public class TestMMerge {
         minLen = len;
     }
     double meanLen  = (double) totLens / (double) nrInputs;
-    double variance = 0;
+    double sumSqDev = 0;
     for (int len : lens) {
       double  diff = (double) len - meanLen;
-      variance += (diff * diff);
+      sumSqDev += (diff * diff);
     }
     System.out.println(  "nrInputs " + nrInputs
                          + ", requested aveInputLen " + aveInputLen);
@@ -195,7 +195,7 @@ public class TestMMerge {
                          + ", actual totLens " + totLens);
     System.out.printf("meanLen %d, std dev %d, minLen %d, maxLen %d\n",
                       Math.round(meanLen),
-                      Math.round(Math.sqrt(variance / (double) nrInputs)),
+                      Math.round(Math.sqrt(sumSqDev / (double) nrInputs)),
                       minLen, maxLen);
     return totLens;
   }

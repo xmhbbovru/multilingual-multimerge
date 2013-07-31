@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # encoding: utf-8
 # Unit and timing test for ruby/mmerge.rb.
-# ruby/testmmerge.rb rev. 23 July 2013 by Stuart Ambler.
+# ruby/testmmerge.rb rev. 29 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -116,16 +116,16 @@ def self.calc_display_stats(lens, ave_input_len)
   end
 
   mean_len = tot_lens / nr_inputs
-  variance = 0
+  sum_sq_dev = 0
   lens.each do |length|
     diff = length - mean_len
-    variance = variance + (diff * diff)
+    sum_sq_dev = sum_sq_dev + (diff * diff)
   end
 
   puts "nr_inputs #{nr_inputs}, requested ave_input_len #{ave_input_len}"
   puts "product #{nr_inputs * ave_input_len}, actual tot_lens #{tot_lens}"
   printf("mean_len %d, std dev %d, min_len %d, max_len %d\n",
-         mean_len, Math.sqrt(variance / nr_inputs).round, min_len, max_len)
+         mean_len, Math.sqrt(sum_sq_dev / nr_inputs).round, min_len, max_len)
 
   tot_lens
 end

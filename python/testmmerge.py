@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """ Unit and timing test for mmerge.py.
-python/testmmerge.py rev. 23 July 2013 by Stuart Ambler.
+python/testmmerge.py rev. 29 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 """
@@ -101,17 +101,17 @@ def calc_display_stats(lens, ave_input_len):
             min_len = length
 
     mean_len = tot_lens / nr_inputs
-    variance = 0
+    sum_sq_dev = 0
     for length in lens:
         diff = length - mean_len
-        variance = variance + (diff * diff)
+        sum_sq_dev = sum_sq_dev + (diff * diff)
 
     print(  "nr_inputs " + str(nr_inputs)
           + ", requested ave_input_len " + str(ave_input_len))
     print(  "their product " + str(nr_inputs * ave_input_len)
           + ", actual tot_lens " + str(tot_lens))
     print(  "mean_len " + str(mean_len)
-          + ", std dev " + str(int(round(math.sqrt(variance / nr_inputs))))
+          + ", std dev " + str(int(round(math.sqrt(sum_sq_dev / nr_inputs))))
           + ", min_len " + str(min_len)
           + ", max_len " + str(max_len))
 

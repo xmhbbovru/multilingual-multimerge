@@ -1,4 +1,4 @@
-// c/testmmerge.c rev. 23 July 2013 by Stuart Ambler.  Tests c/mmerge.c
+// c/testmmerge.c rev. 29 July 2013 by Stuart Ambler.  Tests c/mmerge.c
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -239,7 +239,7 @@ int int_rand_in_range(bool init, bool do_seed, int amin, int amax) {
 }
 
 // Calculate and print statistics for list of ints, interpreted as
-// various lengths centered at aveInputLen; return total length.
+// various lengths centered at ave_input_len; return total length.
 
 int calc_display_stats(int ave_input_len, int nr_inputs, int lens[nr_inputs]) {
   int tot_lens  = 0;
@@ -258,10 +258,10 @@ int calc_display_stats(int ave_input_len, int nr_inputs, int lens[nr_inputs]) {
   
   double mean_len =   (double) (tot_lens)
                     / (double) (nr_inputs);
-  double variance = 0;
+  double sum_sq_dev = 0;
   for (int i = 0; i < nr_inputs; ++i) {
     double diff = (double) (lens[i] - mean_len);
-    variance += (diff * diff);
+    sum_sq_dev += (diff * diff);
   }
 
   (void) printf("nr_inputs %d, requested ave_input_len %d\n"
@@ -269,7 +269,7 @@ int calc_display_stats(int ave_input_len, int nr_inputs, int lens[nr_inputs]) {
                 "mean_len %d, std dev %d, min_len %d, max_len %d\n",
                 nr_inputs, ave_input_len, nr_inputs * ave_input_len,
                 tot_lens, (int) (round(mean_len)),
-                (int) (round(sqrt(variance / (double) (nr_inputs)))),
+                (int) (round(sqrt(sum_sq_dev / (double) (nr_inputs)))),
                 min_len, max_len);
 
   return tot_lens;
