@@ -1,10 +1,10 @@
-# common/Makefile rev. 24 July 2013 by Stuart Ambler.
+# common/Makefile rev. 31 July 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
 SHELL		= /bin/sh
 COMPARE		= ./compare.R
-NONCDIRS	= cc java python ruby
+NONCDIRS	= cc erlang java python ruby
 COMPARISONS	= $(foreach dir,$(NONCDIRS),$(dir).pqhist.pdf) \
 		  $(foreach dir,$(NONCDIRS),$(dir).linhist.pdf)
 

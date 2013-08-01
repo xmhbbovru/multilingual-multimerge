@@ -1,4 +1,4 @@
-python/timing.txt rev. 25 July 2013 by Stuart Ambler.
+python/timing.txt rev. 31 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -27,13 +27,12 @@ made with version different only in this comment):
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
 The statistical language R gave an ok straight line for the plot of pq
-(priority queue version runtime) vs. log (k) * n, by removing comments
-from the above table with header row and in R source("commonanalyze.R").
-Similarly with lin vs. k * n.
+(priority queue version runtime) vs. log (k) * n.  Similarly with lin vs. k * n.
 Or, the fitting and plots can be done with just the first 11 rows,
 resulting in smaller residuals and:
 pq  ~=   9.039e-02 +   3.851e-07 * log(k) * n
 lin ~=   8.126e-01 +   2.697e-07 *     k  * n
+
 The python version for the priority queue method looked about half as fast
 as the C++ version, and for the linear method, around a quarter.  Some
 of the heapq times are comparable to the C++ priority queue times.  For

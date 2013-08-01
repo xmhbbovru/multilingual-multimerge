@@ -1,4 +1,4 @@
-ruby/timing.txt rev. 25 July 2013 by Stuart Ambler.
+ruby/timing.txt rev. 31 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -27,13 +27,12 @@ made with version different only in this comment):
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
 The statistical language R gave somewhat like a straight line for the
-plot of pq (priority queue version runtime) vs. log (k) * n, by removing
-comments from the above table with header row, and in R,
-source("commonanalyze.R").  Similarly lin vs. k * n (closer to straight).
-Or, do the fitting and plots with just the first 11 rows, resulting
-in smaller residuals and:
+plot of pq (priority queue version runtime) vs. log (k) * n.  Similarly lin vs.
+k * n (closer to straight).  Or, do the fitting and plots with just the first
+11 rows, resulting in smaller residuals and:
 pq  ~=   3.099e-01 +   1.058e-06 * log(k) * n
 lin ~=   8.246e-01 +   2.052e-07 *     k  * n
+
 The ruby version for the priority queue method looked like about a tenth
 to a fifth as fast as the C++ version, and for the linear method, around a
 quarter or a third as fast.  For another set of test runs, the ruby

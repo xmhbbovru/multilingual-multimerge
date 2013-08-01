@@ -1,0 +1,42 @@
+erlang/timing.txt rev. 31 July 2013 by Stuart Ambler.
+Copyright (c) 2013 Stuart Ambler.
+Distributed under the Boost License in the accompanying file LICENSE.
+
+Example timing data.
+
+Test runs of testmmerge.cc using erl R15B01, times in seconds:
+      k   each          n      pq     lin   heapq
+         k   each          n      pq     lin   heapq
+        10  10000     121221    0.17    0.76      NA
+        20  10000     192944    0.28    2.17      NA
+        30  10000     267084    0.47    4.44      NA
+        40  10000     350761    0.76    7.60      NA
+        50  10000     480552    1.17   12.99      NA
+        60  10000     574155    1.66   19.10      NA
+        70  10000     682129    1.98   25.58      NA
+        80  10000     786289    2.84   35.08      NA
+        90  10000     866374    2.96   42.97      NA
+       100  10000     970734    3.56   52.06      NA
+       160  10000    1604465    8.78  139.87      NA
+      1000  10000    9695026  313.93      NA      NA
+       100  20000    1941468    7.73  117.25      NA
+       100  40000    3882939   18.13      NA      NA
+       100  60000    5824409   27.32      NA      NA
+       100  80000    7765875   35.96      NA      NA
+       100 100000    9707350   39.80      NA      NA
+Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
+
+The statistical language R gave a parabolic looking curve not too far from a
+straight line for the plot of pq (priority queue version runtime) vs.
+log (k) * n, except for an outlier for k = 1000.  Similarly with lin vs. k * n
+(k = 1000 was not tested).  Or, the fitting and plots can be done with just
+the first 11 rows, resulting in smaller residuals and:
+pq  ~=  -6.932e-01 +   1.070e-06 * log(k) * n
+lin ~=   7.232e-02 +   5.443e-07 *     k  * n
+
+The erlang version for the priority queue method about a fifth to a fiftieth,
+or omitting the outlier k = 1000, a fifth to a twelfth as fast as the C version,
+and for the linear method, a forty-third to a seventy-sixth; from
+common/comparetoc.txt.
+
+The sorted output checked Ok vs. original sorted input.

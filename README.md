@@ -2,7 +2,7 @@ README.md rev. 27 July 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
-# Multimerge Code Samples in C, C++, Java, Python, and Ruby (also some R).
+# Multimerge Code Samples in C, C++, Erlang, Java, Python, and Ruby (also some R).
 
 I wrote this code first in C as an answer to a tech interview question about how
 to merge k sorted arrays of ints into one sorted array.  It used the most

@@ -1,0 +1,6 @@
+#!/bin/sh
+# erlangbuildtar rev. 31 July 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+tar czvf stuarterlangsample.tar.gz erlang/Makefile erlang/README.md erlang/timing.txt erlang/list_iter.erl erlang/mmerge.erl erlang/testmmerge.erl erlang/test_testmmerge.erl erlang/heaps.erl erlang/getopt.erl erlang/getopt.app.src erlang/*.beam common/* erlang/testdata.txt erlang/Rout.txt erlang/*.pdf erlang/doc/* erlangbuildtar LICENSE
