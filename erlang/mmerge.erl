@@ -4,10 +4,12 @@
 % Distributed under the Boost License in the accompanying file LICENSE.
 
 % @doc Functions to merge sorted lists of integers.
-% Input is in the form of a list of k lists.  The merge uses either a simple
-% algorithm linear in k, or an algorithm that uses a priority queue and is
-% logarithmic in k.  Either way, the dependence on n, the total length of all
-% the lists, is linear.  Not much exception or other error handling.
+% Multi-way merge of k sorted lists of integers, total length n, in
+% memory, using either an algorithm linear in k that is simple in the imperative
+% language samples but not so in the current Erlang sample; or instead an
+% algorithm that uses a priority queue and is logarithmic in k in the
+% imperative language samples, but is apparently linear in k in the current
+% Erlang.  Either way, the dependence on n is linear.  Minimal error handling.
 
 -module(mmerge).
 -export([multimerge/1, multimerge_pq/1]).

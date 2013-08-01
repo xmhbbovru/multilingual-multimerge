@@ -31,3 +31,13 @@ make clean deletes the results of all that.  Testing, not extensive,
 was done with GNU Make 3.81.
 
 ## More to come is planned for this sample.
+
+For one thing, the priority queue method runtime that for the other languages
+is logarithmic in k, the number of arrays to merge, seems to be linear in k
+for the Erlang version.  Hopefully it might be possible to improve this.  Also
+the method that for other languages is simpler (and linear in k) is not so
+simple, and is pretty slow, in Erlang (though apparently still linear in k).
+Maybe this could be improved too.
+
+Also, using processes as iterators to the lists to merge makes it seem
+natural to extend to multiple computers.

@@ -5,7 +5,6 @@ Distributed under the Boost License in the accompanying file LICENSE.
 Example timing data.
 
 Test runs of testmmerge.cc using erl R15B01, times in seconds:
-      k   each          n      pq     lin   heapq
          k   each          n      pq     lin   heapq
         10  10000     121221    0.17    0.76      NA
         20  10000     192944    0.28    2.17      NA
@@ -28,15 +27,25 @@ Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
 The statistical language R gave a parabolic looking curve not too far from a
 straight line for the plot of pq (priority queue version runtime) vs.
-log (k) * n, except for an outlier for k = 1000.  Similarly with lin vs. k * n
-(k = 1000 was not tested).  Or, the fitting and plots can be done with just
-the first 11 rows, resulting in smaller residuals and:
-pq  ~=  -6.932e-01 +   1.070e-06 * log(k) * n
-lin ~=   7.232e-02 +   5.443e-07 *     k  * n
+log (k) * n, except for an outlier for k = 1000.  Further investigation (rows
+1-20 for k, 21-25 for n, in testdatahand.txt; analyzed using aa modified
+../common/analyze.R) showed the fit to k * n much better, a reasonable
+straight.  Thus ../common/commonanalyze.R and ../common/analyze.R were
+changed correspondingly.  Apparently this Erlang code sample has different
+timing characteristics than the imperative language ones, for which
+log (k) * n seemed to work well enough.
+
+For lin vs. k * n, there was a reasonable straight line as with the other
+language samples (k = 1000 was not tested).
+
+Doing the fitting and plots can be done with just the first 11 rows (from
+data from another run):
+pq  ~=   2.806e-01 +   3.370e-08 * k * n
+lin  ~=  -2.197e-01 +   5.448e-07 * k * n
 
 The erlang version for the priority queue method about a fifth to a fiftieth,
 or omitting the outlier k = 1000, a fifth to a twelfth as fast as the C version,
 and for the linear method, a forty-third to a seventy-sixth; from
-common/comparetoc.txt.
+common/comparetoc.txt for another run.
 
 The sorted output checked Ok vs. original sorted input.

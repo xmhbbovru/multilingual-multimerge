@@ -4,10 +4,12 @@
 % Distributed under the Boost License in the accompanying file LICENSE.
 
 % @doc Tests erlang/mmerge.erl.
-% Tests multi-way merge of k sorted arrays of int, total length n, in memory,
-% using either a simple algorithm linear in k, or instead an algorithm that
-% uses a priority queue, logarithmic in k.  Either way, the dependence on n
-% is linear.  Minimal error handling.
+% Tests multi-way merge of k sorted lists of integers, total length n, in
+% memory, using either an algorithm linear in k that is simple in the imperative
+% language samples but not so in the current Erlang sample; or instead an
+% algorithm that uses a priority queue and is logarithmic in k in the
+% imperative language samples, but is apparently linear in k in the current
+% Erlang.  Either way, the dependence on n is linear.  Minimal error handling.
 
 -module(testmmerge).
 
