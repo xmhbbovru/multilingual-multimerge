@@ -1,21 +1,20 @@
-% erlang/mmerge.erl rev. 31 July 2013 by Stuart Ambler.
+% erlang/mmerge.erl rev. 04 August 2013 by Stuart Ambler.
 % Functions to merge sorted lists of integers.
 % Copyright (c) 2013 Stuart Ambler.
 % Distributed under the Boost License in the accompanying file LICENSE.
 
 % @doc Functions to merge sorted lists of integers.
 % Multi-way merge of k sorted lists of integers, total length n, in
-% memory, using either an algorithm linear in k that is simple in the imperative
-% language samples but not so in the current Erlang sample; or instead an
-% algorithm that uses a priority queue and is logarithmic in k in the
-% imperative language samples, but is apparently linear in k in the current
-% Erlang.  Either way, the dependence on n is linear.  Minimal error handling.
+% memory, using either an algorithm with runtime linear in k that is simple
+% in the imperative language samples but not so in the current Erlang sample;
+% or instead an algorithm that uses a priority queue with runtime logarithmic
+% in k.  Either way, the dependence on n is linear.  Minimal error handling.
 
 -module(mmerge).
 -export([multimerge/1, multimerge_pq/1]).
 -import(lists).
 -import(list_iter).
--import(heaps).
+-import(skewbinheap).
 
 % @doc Multimerge using straightforward "linear" method to merge a list of
 % iterators to sorted (increasing) lists of integers into one sorted list of
@@ -89,27 +88,28 @@ multimerge_pq(It_list) ->
                                     {V, It_next} = list_iter:next(It, true),
                                     if
                                         V /= iterator_none ->
-                                            {heaps:add({V, N, It_next}, Q),
+                                            {skewbinheap:insert({V, N, It_next},
+                                                                Q),
                                              N + 1};
                                         true ->
                                             nil
                                     end
                             end,
-                            {heaps:new(), 0}, It_list),
+                            {skewbinheap:new(), 0}, It_list),
     multimerge_pq({Q, Nall}, []).
 
-% It would reduce dependency on heaps implementation to use heaps:new()
-% instead of {prioq, nil, 0} in the next line; but erlang won't allow it.
-multimerge_pq({{prioq, nil, 0}, _}, Out) ->
+% It would reduce dependency on skewbinheap implementation to use
+% skewbinheap:new() instead of [] in the next line; but erlang won't allow it.
+multimerge_pq({[], _}, Out) ->
     lists:reverse(Out);
 multimerge_pq({Q, Nall}, Out) ->
-    {Val, N, It} = heaps:min(Q),
-    Q1 = heaps:delete_min(Q),
+    {Val, N, It} = skewbinheap:min(Q),
+    Q1 = skewbinheap:delete_min(Q),
     {V, It_next} = list_iter:next(It, true),
     if
         V == iterator_none ->
             Q2 = Q1;
         true ->
-            Q2 = heaps:add({V, N, It_next}, Q1)
+            Q2 = skewbinheap:insert({V, N, It_next}, Q1)
     end,
     multimerge_pq({Q2, Nall}, [Val | Out]).

@@ -1,15 +1,16 @@
-% erlang/testmmerge.erl rev. 31 July 2013 by Stuart Ambler.
+% erlang/testmmerge.erl rev. 04 August 2013 by Stuart Ambler.
 % Tests erlang/mmerge.erl.
 % Copyright (c) 2013 Stuart Ambler.
 % Distributed under the Boost License in the accompanying file LICENSE.
 
 % @doc Tests erlang/mmerge.erl.
 % Tests multi-way merge of k sorted lists of integers, total length n, in
-% memory, using either an algorithm linear in k that is simple in the imperative
-% language samples but not so in the current Erlang sample; or instead an
-% algorithm that uses a priority queue and is logarithmic in k in the
-% imperative language samples, but is apparently linear in k in the current
-% Erlang.  Either way, the dependence on n is linear.  Minimal error handling.
+% memory, using either an algorithm with runtime linear in k that is simple
+% in the imperative language samples but not so in the current Erlang sample;
+% or instead an algorithm that uses a priority queue with runtime logarithmic
+% in k.  Either way, the dependence on n is linear.  Minimal error handling.
+
+% Above comment duplicated, except for "Tests", from that in mmerge.erl.
 
 -module(testmmerge).
 

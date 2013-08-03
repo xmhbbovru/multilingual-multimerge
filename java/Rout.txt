@@ -1,0 +1,4 @@
+17 points pq  ~=   7.183e-03 +   1.347e-07 * log(k) * n
+12 points lin  ~=  -2.109e-01 +   2.425e-08 * k * n
+11 points pq  ~=   8.847e-02 +   3.862e-08 * log(k) * n
+11 points lin  ~=  -2.753e-01 +   2.667e-08 * k * n

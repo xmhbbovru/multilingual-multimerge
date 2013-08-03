@@ -1,0 +1,29 @@
+#!/bin/sh
+# testtars rev. 04 August 2013 by Stuart Ambler.
+# Copyright (c) 2013 Stuart Ambler.
+# Distributed under the Boost License in the accompanying file LICENSE.
+
+mkdir testtarstemp
+
+./allbuildtar
+cd testtarstemp
+cp ../stuartsample.tar.gz .
+tar xzvf *.tar.gz
+echo diff -r .. .
+diff -r .. .
+rm -r ../testtarstemp/*
+cd ..
+
+for d in c cc common erlang java python ruby; do
+  echo hello${d}goodbye
+  ./${d}buildtar
+  cd testtarstemp
+  cp ../stuart${d}sample.tar.gz .
+  tar xzvf *.tar.gz
+  echo diff -r ../${d} ./${d}
+  diff -r ../${d} ./${d}
+  rm -r ../testtarstemp/*
+  cd ..
+done
+
+rm -r testtarstemp

@@ -1,0 +1,104 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module mmerge</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>mmerge</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/stuart/Projects/samples/python/mmerge.py">/home/stuart/Projects/samples/python/mmerge.py</a></font></td></tr></table>
+    <p><tt>Functions&nbsp;to&nbsp;merge&nbsp;sorted&nbsp;lists&nbsp;of&nbsp;ints.<br>
+python/mmerge.py&nbsp;rev.&nbsp;22&nbsp;July&nbsp;2013&nbsp;by&nbsp;Stuart&nbsp;Ambler.<br>
+Copyright&nbsp;(c)&nbsp;2013&nbsp;Stuart&nbsp;Ambler.<br>
+Distributed&nbsp;under&nbsp;the&nbsp;Boost&nbsp;License&nbsp;in&nbsp;the&nbsp;accompanying&nbsp;file&nbsp;LICENSE.<br>
+&nbsp;<br>
+Input&nbsp;is&nbsp;in&nbsp;the&nbsp;form&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;k&nbsp;lists,&nbsp;and&nbsp;the&nbsp;merge&nbsp;uses&nbsp;either&nbsp;a&nbsp;simple<br>
+algorithm&nbsp;linear&nbsp;in&nbsp;k,&nbsp;or&nbsp;an&nbsp;algorithm&nbsp;that&nbsp;uses&nbsp;a&nbsp;priority&nbsp;queue&nbsp;and&nbsp;is<br>
+logarithmic&nbsp;in&nbsp;k.&nbsp;&nbsp;Either&nbsp;way,&nbsp;the&nbsp;dependence&nbsp;on&nbsp;n,&nbsp;the&nbsp;total&nbsp;length&nbsp;of&nbsp;all&nbsp;the<br>
+lists,&nbsp;is&nbsp;linear.&nbsp;&nbsp;Not&nbsp;much&nbsp;exception&nbsp;or&nbsp;other&nbsp;error&nbsp;handling.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="heapq.html">heapq</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="mmerge.html#MMergeLinear">MMergeLinear</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="MMergeLinear">class <strong>MMergeLinear</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;to&nbsp;support&nbsp;linear&nbsp;k-way&nbsp;merge.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="MMergeLinear-__init__"><strong>__init__</strong></a>(self, gens)</dt><dd><tt>Initialize&nbsp;instance&nbsp;variables.<br>
+Args:&nbsp;self,&nbsp;list&nbsp;of&nbsp;generators&nbsp;(used&nbsp;to&nbsp;call&nbsp;minptrix).</tt></dd></dl>
+
+<dl><dt><a name="MMergeLinear-minptrix"><strong>minptrix</strong></a>(self, gens)</dt><dd><tt>Finds&nbsp;minimum&nbsp;value&nbsp;for&nbsp;any&nbsp;of&nbsp;a&nbsp;list&nbsp;of&nbsp;generators,<br>
+Args:&nbsp;self,&nbsp;list&nbsp;of&nbsp;generators&nbsp;(side-effect:&nbsp;are&nbsp;called)&nbsp;of&nbsp;int.<br>
+Returns:&nbsp;bool&nbsp;minimum&nbsp;value&nbsp;valid,&nbsp;minimum&nbsp;value.<br>
+Execution&nbsp;time&nbsp;is&nbsp;linear&nbsp;in&nbsp;the&nbsp;total&nbsp;number&nbsp;of&nbsp;elements&nbsp;the<br>
+generators&nbsp;return.&nbsp;&nbsp;In&nbsp;finding&nbsp;the&nbsp;minimum&nbsp;value,&nbsp;next&nbsp;is&nbsp;called.<br>
+minptrix&nbsp;is&nbsp;designed&nbsp;to&nbsp;be&nbsp;called&nbsp;repeatedly,&nbsp;with&nbsp;the&nbsp;same&nbsp;list&nbsp;of<br>
+generators,&nbsp;by&nbsp;method&nbsp;multimerge,&nbsp;until&nbsp;calling&nbsp;next&nbsp;has&nbsp;raised&nbsp;a<br>
+StopIteration&nbsp;exception&nbsp;for&nbsp;all&nbsp;the&nbsp;generators.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-list_gen"><strong>list_gen</strong></a>(a_list)</dt><dd><tt>Generates&nbsp;elements&nbsp;of&nbsp;a&nbsp;list.<br>
+Args:&nbsp;a&nbsp;list.<br>
+Returns:&nbsp;nothing.<br>
+It&nbsp;would&nbsp;be&nbsp;possible&nbsp;to&nbsp;alter&nbsp;the&nbsp;code&nbsp;to&nbsp;consume&nbsp;output&nbsp;of&nbsp;an&nbsp;array&nbsp;of<br>
+generators,&nbsp;for&nbsp;example&nbsp;producing&nbsp;values&nbsp;from&nbsp;a&nbsp;file,&nbsp;rather&nbsp;than&nbsp;a&nbsp;list<br>
+of&nbsp;lists.</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>mmerge&nbsp;main&nbsp;to&nbsp;test&nbsp;k-way&nbsp;merges;&nbsp;simply&nbsp;calls&nbsp;testmmerge.<a href="#-main">main</a>().<br>
+Args:&nbsp;none<br>
+Returns:&nbsp;exit&nbsp;code</tt></dd></dl>
+ <dl><dt><a name="-multimerge"><strong>multimerge</strong></a>(lists)</dt><dd><tt>Multimerge,&nbsp;linear&nbsp;in&nbsp;k,&nbsp;the&nbsp;number&nbsp;of&nbsp;lists.<br>
+Args:&nbsp;list&nbsp;of&nbsp;lists.<br>
+Returns:&nbsp;a&nbsp;list.<br>
+Each&nbsp;element&nbsp;of&nbsp;list&nbsp;must&nbsp;be&nbsp;a&nbsp;sorted&nbsp;list&nbsp;of&nbsp;int.&nbsp;&nbsp;On&nbsp;return,&nbsp;output<br>
+will&nbsp;be&nbsp;a&nbsp;sorted&nbsp;list&nbsp;containing&nbsp;all&nbsp;the&nbsp;values&nbsp;in&nbsp;all&nbsp;the&nbsp;elements&nbsp;of<br>
+lists.</tt></dd></dl>
+ <dl><dt><a name="-multimerge_pq"><strong>multimerge_pq</strong></a>(lists)</dt><dd><tt>Multimerge&nbsp;using&nbsp;priority&nbsp;queue.<br>
+Args:&nbsp;list&nbsp;of&nbsp;lists.<br>
+Returns:&nbsp;a&nbsp;list.<br>
+Each&nbsp;element&nbsp;of&nbsp;list&nbsp;must&nbsp;be&nbsp;a&nbsp;sorted&nbsp;list&nbsp;of&nbsp;int.&nbsp;&nbsp;On&nbsp;return,&nbsp;output<br>
+will&nbsp;be&nbsp;a&nbsp;sorted&nbsp;list&nbsp;containing&nbsp;all&nbsp;the&nbsp;values&nbsp;in&nbsp;all&nbsp;the&nbsp;elements&nbsp;of<br>
+lists.</tt></dd></dl>
+</td></tr></table>
+</body></html>

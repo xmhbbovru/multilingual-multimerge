@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module MMerge - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>mmerge.rb
+    <li>testmmerge.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-main">::main</a>
+    
+    <li ><a href="#method-c-multimerge">::multimerge</a>
+    
+    <li ><a href="#method-c-multimerge_pq">::multimerge_pq</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Makefile.html">Makefile</a>
+  
+    <li class="file"><a href="./README_md.html">README</a>
+  
+    <li class="file"><a href="./Rout_txt.html">Rout</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="./runrspec.html">runrspec</a>
+  
+    <li class="file"><a href="./testdata_txt.html">testdata</a>
+  
+    <li class="file"><a href="./timing_txt.html">timing</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./MMerge.html">MMerge</a>
+  
+    <li><a href="./MMerge/MMergeLinear.html">MMerge::MMergeLinear</a>
+  
+    <li><a href="./MMerge/ValueEnumeratorPair.html">MMerge::ValueEnumeratorPair</a>
+  
+    <li><a href="./TestMMerge.html">TestMMerge</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module MMerge</h1>
+
+  <div id="description" class="description">
+    
+<p>Functions to merge sorted arrays of integers. ruby/mmerge.rb rev. 22 July
+2013 by Stuart Ambler. Copyright © 2013 Stuart Ambler. Distributed under
+the Boost License in the accompanying file LICENSE. Input is in the form of
+an array of k arrays.  The merge uses either a simple algorithm linear in
+k, or an algorithm that uses a priority queue and is logarithmic in k. 
+Either way, the dependence on n, the total length of all the arrays, is
+linear.  Not much exception or other error handling. Assumes PriorityQueue
+gem has been installed.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <!-- Constants -->
+    <section id="constants-list" class="section">
+      <h3 class="section-header">Constants</h3>
+      <dl>
+      
+        <dt id="MAXINT">MAXINT
+        
+        <dd class="description">
+        
+      
+        <dt id="MININT">MININT
+        
+        <dd class="description">
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <!-- Attributes -->
+    <section id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
+
+      
+      <div id="attribute-i-MAXINT" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">MAXINT</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-MININT" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">MININT</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section><!-- attribute-method-details -->
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-main" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">main</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="main-source">
+            <pre><span class="ruby-comment"># File mmerge.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">main</span>
+  <span class="ruby-identifier">require_relative</span> <span class="ruby-string">'testmmerge.rb'</span>
+  <span class="ruby-constant">TestMMerge</span>.<span class="ruby-identifier">main_func</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- main-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- main-method -->
+
+    
+      <div id="method-c-multimerge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multimerge</span><span
+            class="method-args">(arrays)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Multimerge, linear in k, the number of arrays.</p>
+
+<pre>Args: array of arrays.
+Returns: an array.</pre>
+
+<p>Each element of array must be a sorted array of integers.  On return,
+output is a sorted array containing all the values in all the elements of
+arrays.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multimerge-source">
+            <pre><span class="ruby-comment"># File mmerge.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">multimerge</span>(<span class="ruby-identifier">arrays</span>)
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">tot_nr</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">enums</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">arrays</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">arrays</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">an_array</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">enums</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">an_array</span>.<span class="ruby-identifier">to_enum</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">tot_nr</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">an_array</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">tot_nr</span>
+  <span class="ruby-identifier">mmerge</span> = <span class="ruby-constant">MMergeLinear</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">enums</span>)
+  <span class="ruby-identifier">minval_valid</span>, <span class="ruby-identifier">minval</span> = <span class="ruby-identifier">mmerge</span>.<span class="ruby-identifier">minptrix</span>(<span class="ruby-identifier">enums</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">minval_valid</span>
+    <span class="ruby-comment"># if wanted a enumerator, could yield here instead of building output</span>
+    <span class="ruby-identifier">output</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">minval</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">minval_valid</span>, <span class="ruby-identifier">minval</span> = <span class="ruby-identifier">mmerge</span>.<span class="ruby-identifier">minptrix</span>(<span class="ruby-identifier">enums</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- multimerge-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- multimerge-method -->
+
+    
+      <div id="method-c-multimerge_pq" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">multimerge_pq</span><span
+            class="method-args">(arrays)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Multimerge using priority queue.</p>
+
+<pre>Args: array of arrays.
+Returns: an array.</pre>
+
+<p>Each element of array must be a sorted array of integers.  On return,
+output is a sorted array containing all the values in all the elements of
+arrays.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="multimerge_pq-source">
+            <pre><span class="ruby-comment"># File mmerge.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">multimerge_pq</span>(<span class="ruby-identifier">arrays</span>)
+  <span class="ruby-identifier">tot_nr</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">pq</span> = <span class="ruby-constant">PriorityQueue</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">arrays</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">an_array</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">enum</span> = <span class="ruby-identifier">an_array</span>.<span class="ruby-identifier">to_enum</span>
+    <span class="ruby-identifier">curval</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">next</span>
+    <span class="ruby-identifier">pq</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-identifier">curval</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">curval</span>
+    <span class="ruby-identifier">tot_nr</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">an_array</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">tot_nr</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-identifier">pq</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-identifier">enum</span>, <span class="ruby-identifier">curval</span> = <span class="ruby-identifier">pq</span>.<span class="ruby-identifier">delete_min</span>
+    <span class="ruby-comment"># if wanted a enumerator, could yield here instead of building output</span>
+    <span class="ruby-identifier">output</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">curval</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">curval</span> = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">next</span>
+      <span class="ruby-identifier">pq</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-identifier">curval</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">curval</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StopIteration</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">output</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- multimerge_pq-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- multimerge_pq-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

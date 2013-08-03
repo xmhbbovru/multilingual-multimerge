@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>module TestMMerge - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="./js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="./js/darkfish.js"></script>
+
+
+<body id="top" class="module">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="./index.html">Home</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>testmmerge.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-calc_display_stats">::calc_display_stats</a>
+    
+    <li ><a href="#method-c-generate_data">::generate_data</a>
+    
+    <li ><a href="#method-c-get_cfg">::get_cfg</a>
+    
+    <li ><a href="#method-c-main">::main</a>
+    
+    <li ><a href="#method-c-main_func">::main_func</a>
+    
+    <li ><a href="#method-c-stopwatch">::stopwatch</a>
+    
+    <li ><a href="#method-c-verify_small_data">::verify_small_data</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="./Makefile.html">Makefile</a>
+  
+    <li class="file"><a href="./README_md.html">README</a>
+  
+    <li class="file"><a href="./Rout_txt.html">Rout</a>
+  
+    <li class="file"><a href="./doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="./runrspec.html">runrspec</a>
+  
+    <li class="file"><a href="./testdata_txt.html">testdata</a>
+  
+    <li class="file"><a href="./timing_txt.html">timing</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./MMerge.html">MMerge</a>
+  
+    <li><a href="./MMerge/MMergeLinear.html">MMerge::MMergeLinear</a>
+  
+    <li><a href="./MMerge/ValueEnumeratorPair.html">MMerge::ValueEnumeratorPair</a>
+  
+    <li><a href="./TestMMerge.html">TestMMerge</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="module">module TestMMerge</h1>
+
+  <div id="description" class="description">
+    
+<p>Unit and timing test for ruby/mmerge.rb. ruby/testmmerge.rb rev. 29 July
+2013 by Stuart Ambler. Copyright © 2013 Stuart Ambler. Distributed under
+the Boost License in the accompanying file LICENSE.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-calc_display_stats" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">calc_display_stats</span><span
+            class="method-args">(lens, ave_input_len)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Calculate and print statistics for array of ints.</p>
+
+<pre>Args: lens array of ints
+      ave_input_len requested average of the ints.
+Returns: total of the ints.</pre>
+
+<p>Variable names and print text assumes that the ints are lengths (lens).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="calc_display_stats-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calc_display_stats</span>(<span class="ruby-identifier">lens</span>, <span class="ruby-identifier">ave_input_len</span>)
+  <span class="ruby-identifier">nr_inputs</span> = <span class="ruby-identifier">lens</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">tot_lens</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">max_len</span>  = <span class="ruby-constant">MMerge</span><span class="ruby-operator">::</span><span class="ruby-constant">MININT</span>
+  <span class="ruby-identifier">min_len</span>  = <span class="ruby-constant">MMerge</span><span class="ruby-operator">::</span><span class="ruby-constant">MAXINT</span>
+  <span class="ruby-identifier">lens</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">length</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">tot_lens</span> = <span class="ruby-identifier">tot_lens</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">max_len</span> = <span class="ruby-identifier">length</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">max_len</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">min_len</span> = <span class="ruby-identifier">length</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">min_len</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">mean_len</span> = <span class="ruby-identifier">tot_lens</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">nr_inputs</span>
+  <span class="ruby-identifier">sum_sq_dev</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">lens</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">length</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">diff</span> = <span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">mean_len</span>
+    <span class="ruby-identifier">sum_sq_dev</span> = <span class="ruby-identifier">sum_sq_dev</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">diff</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">diff</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;nr_inputs #{nr_inputs}, requested ave_input_len #{ave_input_len}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;product #{nr_inputs * ave_input_len}, actual tot_lens #{tot_lens}&quot;</span>
+  <span class="ruby-identifier">printf</span>(<span class="ruby-string">&quot;mean_len %d, std dev %d, min_len %d, max_len %d\n&quot;</span>,
+         <span class="ruby-identifier">mean_len</span>, <span class="ruby-constant">Math</span>.<span class="ruby-identifier">sqrt</span>(<span class="ruby-identifier">sum_sq_dev</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">nr_inputs</span>).<span class="ruby-identifier">round</span>, <span class="ruby-identifier">min_len</span>, <span class="ruby-identifier">max_len</span>)
+
+  <span class="ruby-identifier">tot_lens</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- calc_display_stats-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- calc_display_stats-method -->
+
+    
+      <div id="method-c-generate_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_data</span><span
+            class="method-args">(nr_inputs, ave_input_len)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generate test data.</p>
+
+<pre>Args: nr_inputs number of sorted input arrays to generate  ,
+      ave_input_len average length of such arrays.
+Returns: inarray_copy array containing expected output,
+         arrays a array of arrays to use as input to the merge functions.</pre>
+
+<p>Generate array of random lengths for input arrays uniformly distributed
+from about ave_input_len / 10 to 2 * ave_input_len minus that a range
+centered at ave_input_len.  Display length statistics.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_data-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_data</span>(<span class="ruby-identifier">nr_inputs</span>, <span class="ruby-identifier">ave_input_len</span>)
+  <span class="ruby-identifier">amin</span> = (<span class="ruby-identifier">ave_input_len</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>) <span class="ruby-operator">/</span> <span class="ruby-value">10</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">amin</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">amin</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">amax</span> = <span class="ruby-value">2</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">ave_input_len</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">amin</span>
+
+  <span class="ruby-identifier">lens</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">nr_inputs</span>
+  (<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">nr_inputs</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">lens</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">amin</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rand</span>(<span class="ruby-identifier">amax</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">amin</span>) }
+
+  <span class="ruby-identifier">tot_lens</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">calc_display_stats</span>(<span class="ruby-identifier">lens</span>, <span class="ruby-identifier">ave_input_len</span>)
+
+  <span class="ruby-comment"># Generate the input data by initializing an overall input array</span>
+  <span class="ruby-comment"># sequentially, shuffling it, piecing it out into the input arrays,</span>
+  <span class="ruby-comment"># and sorting each input array.</span>
+
+  <span class="ruby-identifier">inarray</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">tot_lens</span>
+  (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">tot_lens</span>).<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">inarray</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>] = <span class="ruby-identifier">i</span> }
+  <span class="ruby-identifier">inarray_copy</span> = <span class="ruby-identifier">inarray</span>.<span class="ruby-identifier">clone</span>
+  <span class="ruby-identifier">inarray</span>.<span class="ruby-identifier">shuffle</span>
+
+  <span class="ruby-identifier">arrays</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">nr_inputs</span>
+  <span class="ruby-identifier">in_ix</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">ar_ix</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">lens</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">length</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">a_array</span> = <span class="ruby-identifier">inarray</span>[<span class="ruby-identifier">in_ix</span><span class="ruby-operator">...</span>(<span class="ruby-identifier">in_ix</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">length</span>)]
+    <span class="ruby-identifier">in_ix</span> = <span class="ruby-identifier">in_ix</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">a_array</span>.<span class="ruby-identifier">sort</span>
+    <span class="ruby-identifier">arrays</span>[<span class="ruby-identifier">ar_ix</span>] = <span class="ruby-identifier">a_array</span>
+    <span class="ruby-identifier">ar_ix</span> = <span class="ruby-identifier">ar_ix</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">inarray_copy</span>, <span class="ruby-identifier">arrays</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- generate_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- generate_data-method -->
+
+    
+      <div id="method-c-get_cfg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_cfg</span><span
+            class="method-args">(max_nr_input_ints, default_nr_inputs, default_ave_input_len)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Process command-line arguments.</p>
+
+<pre>Args: max_nr_input_ints maximum total number of elements to be merged.
+Returns: nr_inputs number of sorted input arrays to be merged
+         ave_input_len requested average length of such
+         lin_multimerge additionally use the linear merge method.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="get_cfg-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_cfg</span>(<span class="ruby-identifier">max_nr_input_ints</span>, <span class="ruby-identifier">default_nr_inputs</span>,
+                 <span class="ruby-identifier">default_ave_input_len</span>)
+  <span class="ruby-identifier">doc</span> = <span class="ruby-value">&lt;&lt;DOCOPT
+Test mmerge.rb k-way merge.
+
+Usage:
+  #{__FILE__} [-l]
+  #{__FILE__} &lt;nr_inputs&gt; [-l]
+  #{__FILE__} &lt;nr_inputs&gt; &lt;ave_input_len&gt; [-l]
+  #{__FILE__} -h | --help
+
+Arguments:
+  &lt;nr_inputs&gt;      Number of sorted input arrays to generate; must be
+                   positive and its product with ave_input_len no more
+                   than 500 million.  [default: 1000]
+  &lt;ave_input_len&gt;  Desired average length of sorted input arrays to
+                   generate; must be positive, and its product
+                   with nr_inputs no more than 500 million.  [default: 10000]
+
+Options:
+  -h --help        Show this help message and exit.
+  -l               Test slower linear method as well as priority queue method.
+
+DOCOPT</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">dict</span> = <span class="ruby-constant">Docopt</span>.<span class="ruby-identifier">docopt</span>(<span class="ruby-identifier">doc</span>)
+
+    <span class="ruby-identifier">nr_inputs</span> = <span class="ruby-identifier">dict</span>[<span class="ruby-string">'&lt;nr_inputs&gt;'</span>]
+    <span class="ruby-identifier">nr_inputs</span> = <span class="ruby-identifier">default_nr_inputs</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">nr_inputs</span>
+    <span class="ruby-identifier">nr_inputs</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">nr_inputs</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">ave_input_len</span> = <span class="ruby-identifier">dict</span>[<span class="ruby-string">'&lt;ave_input_len&gt;'</span>]
+    <span class="ruby-identifier">ave_input_len</span> = <span class="ruby-identifier">default_ave_input_len</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">ave_input_len</span>
+    <span class="ruby-identifier">ave_input_len</span> = <span class="ruby-constant">Integer</span>(<span class="ruby-identifier">ave_input_len</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+
+    <span class="ruby-identifier">lin_multimerge</span> = <span class="ruby-identifier">dict</span>[<span class="ruby-string">'-l'</span>]
+
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">nr_inputs</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">nr_inputs</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">ave_input_len</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">ave_input_len</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">nr_inputs</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">ave_input_len</span>
+        <span class="ruby-keyword">if</span> (<span class="ruby-identifier">calc_tot</span> = <span class="ruby-identifier">nr_inputs</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">ave_input_len</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_nr_input_ints</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;The product of nr_inputs and ave_input_len, #{calc_tot},&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;the total number of ints to merge, can't exceed #{max_nr_input_ints}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-identifier">doc</span>
+      <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">nr_inputs</span>, <span class="ruby-identifier">ave_input_len</span>, <span class="ruby-identifier">lin_multimerge</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Docopt</span><span class="ruby-operator">::</span><span class="ruby-constant">Exit</span>  <span class="ruby-comment"># =&gt; e</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">doc</span>  <span class="ruby-comment"># could just puts e</span>
+    <span class="ruby-identifier">exit</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- get_cfg-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- get_cfg-method -->
+
+    
+      <div id="method-c-main" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">main</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>testmmerge main to test k-way merges. Args: none Returns: exit code Usage: 
+./testmmerge.rb [args to be processed by <a
+href="TestMMerge.html#method-c-main_func">::main_func</a>]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="main-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">main</span>
+  <span class="ruby-identifier">main_func</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- main-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- main-method -->
+
+    
+      <div id="method-c-main_func" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">main_func</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test k-way merge; called by main.</p>
+
+<pre>Args: none.
+Returns: nothing.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="main_func-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">main_func</span>
+  <span class="ruby-identifier">max_nr_input_ints</span> = <span class="ruby-value">500_000_000</span>  <span class="ruby-comment"># (Ok for 8GB RAM)</span>
+  <span class="ruby-identifier">default_nr_inputs</span> = <span class="ruby-value">1000</span>
+  <span class="ruby-identifier">default_ave_input_len</span> = <span class="ruby-value">10000</span>
+  <span class="ruby-identifier">nr_inputs</span>, <span class="ruby-identifier">ave_input_len</span>, <span class="ruby-identifier">lin_multimerge</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_cfg</span>(
+                                                         <span class="ruby-identifier">max_nr_input_ints</span>,
+                                                         <span class="ruby-identifier">default_nr_inputs</span>,
+                                                         <span class="ruby-identifier">default_ave_input_len</span>)
+
+  <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify_small_data</span>  <span class="ruby-comment"># set false if error in merge here or later</span>
+
+  <span class="ruby-comment"># Do the larger tests.</span>
+
+  <span class="ruby-identifier">inarray_copy</span>, <span class="ruby-identifier">arrays</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">generate_data</span>(<span class="ruby-identifier">nr_inputs</span>, <span class="ruby-identifier">ave_input_len</span>)
+
+  <span class="ruby-identifier">start_time</span> = [<span class="ruby-value">0</span>]  <span class="ruby-comment"># a array to provide for setting inside stopwatch</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopwatch</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-keyword">true</span>, <span class="ruby-string">'multimerge pq'</span>)
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">MMerge</span>.<span class="ruby-identifier">multimerge_pq</span>(<span class="ruby-identifier">arrays</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopwatch</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-keyword">false</span>, <span class="ruby-string">'multimerge pq'</span>)
+  <span class="ruby-identifier">mmerge_output_ok</span> = (<span class="ruby-identifier">output</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">inarray_copy</span>)
+  <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mmerge_output_ok</span>
+  <span class="ruby-identifier">diff_txt</span> = <span class="ruby-identifier">mmerge_output_ok</span> <span class="ruby-operator">?</span> <span class="ruby-string">'matches     '</span> <span class="ruby-operator">:</span> <span class="ruby-string">'differs from'</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;multimerge pq  #{diff_txt} inarray_copy&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">lin_multimerge</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopwatch</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-keyword">true</span>, <span class="ruby-string">'multimerge lin'</span>)
+    <span class="ruby-identifier">output</span> = <span class="ruby-constant">MMerge</span>.<span class="ruby-identifier">multimerge</span>(<span class="ruby-identifier">arrays</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopwatch</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-keyword">false</span>, <span class="ruby-string">'multimerge lin'</span>)
+    <span class="ruby-identifier">mmerge_output_ok</span> = (<span class="ruby-identifier">output</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">inarray_copy</span>)
+    <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mmerge_output_ok</span>
+    <span class="ruby-identifier">diff_txt</span> = <span class="ruby-identifier">mmerge_output_ok</span> <span class="ruby-operator">?</span> <span class="ruby-string">'matches     '</span> <span class="ruby-operator">:</span> <span class="ruby-string">'differs from'</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;multimerge pq  #{diff_txt} inarray_copy&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">retval</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">-1</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- main_func-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- main_func-method -->
+
+    
+      <div id="method-c-stopwatch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stopwatch</span><span
+            class="method-args">(start_time, start, label)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Times intervals.</p>
+
+<pre>Args: start_time is a array to allow modification as well as retrieval,
+      bool start true to start timer, false to stop
+      label to display.
+Returns: nothing (side effect sets start_time if start).</pre>
+
+<p>For timing merges in actual usage s is nonempty only if not start.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="stopwatch-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">stopwatch</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-identifier">start</span>, <span class="ruby-identifier">label</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{label} stopwatch start&quot;</span>
+    <span class="ruby-identifier">start_time</span>[<span class="ruby-value">0</span>] = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">end_time</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+    <span class="ruby-identifier">printf</span>(<span class="ruby-string">&quot;%s stopwatch end elapsed %.2f sec\n&quot;</span>, <span class="ruby-identifier">label</span>,
+           <span class="ruby-identifier">end_time</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start_time</span>[<span class="ruby-value">0</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- stopwatch-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- stopwatch-method -->
+
+    
+      <div id="method-c-verify_small_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_small_data</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Test data small enough to verify by hand.</p>
+
+<pre>Args: none.
+Returns: true if merge output Ok</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="verify_small_data-source">
+            <pre><span class="ruby-comment"># File testmmerge.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">verify_small_data</span>
+  <span class="ruby-identifier">aint1</span> = [<span class="ruby-value">2</span>,  <span class="ruby-value">6</span>, <span class="ruby-value">88</span>, <span class="ruby-value">688</span>]
+  <span class="ruby-identifier">aint2</span> = [<span class="ruby-value">1</span>,  <span class="ruby-value">2</span>,  <span class="ruby-value">3</span>,   <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>, <span class="ruby-value">7</span>, <span class="ruby-value">8</span>]
+  <span class="ruby-identifier">aint3</span> = [<span class="ruby-value">5</span>, <span class="ruby-value">10</span>, <span class="ruby-value">15</span>,  <span class="ruby-value">20</span>]
+  <span class="ruby-identifier">arrays</span> = [<span class="ruby-identifier">aint1</span>, <span class="ruby-identifier">aint2</span>, <span class="ruby-identifier">aint3</span>]
+  <span class="ruby-identifier">correct_output</span> = [<span class="ruby-value">1</span>, <span class="ruby-value">2</span>, <span class="ruby-value">2</span>, <span class="ruby-value">3</span>, <span class="ruby-value">4</span>, <span class="ruby-value">5</span>, <span class="ruby-value">5</span>, <span class="ruby-value">6</span>, <span class="ruby-value">6</span>, <span class="ruby-value">7</span>, <span class="ruby-value">8</span>, <span class="ruby-value">10</span>, <span class="ruby-value">15</span>, <span class="ruby-value">20</span>, <span class="ruby-value">88</span>, <span class="ruby-value">688</span>]
+
+  <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">MMerge</span>.<span class="ruby-identifier">multimerge_pq</span>(<span class="ruby-identifier">arrays</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">'multimerge pq     small data'</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">correct_output</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">'multimerge pq  differs from correct_output'</span>
+    <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">output</span> = <span class="ruby-constant">MMerge</span>.<span class="ruby-identifier">multimerge</span>(<span class="ruby-identifier">arrays</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">'multimerge linear small data'</span>
+  <span class="ruby-identifier">p</span> <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">correct_output</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">'multimerge lin differs from correct_output'</span>
+    <span class="ruby-identifier">retval</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">retval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- verify_small_data-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- verify_small_data-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

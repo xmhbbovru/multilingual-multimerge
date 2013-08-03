@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+
+<title>class MMerge::MMergeLinear - RDoc Documentation</title>
+
+<link type="text/css" media="screen" href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/navigation.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search_index.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/search.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/searcher.js"></script>
+<script type="text/javascript" charset="utf-8" src="../js/darkfish.js"></script>
+
+
+<body id="top" class="class">
+<nav id="metadata">
+  <nav id="home-section" class="section">
+  <h3 class="section-header">
+    <a href="../index.html">Home</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </h3>
+</nav>
+
+
+  <nav id="search-section" class="section project-section" class="initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <h3 class="section-header">
+      <input type="text" name="search" placeholder="Search" id="search-field"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </h3>
+  </form>
+
+  <ul id="search-results" class="initially-hidden"></ul>
+</nav>
+
+
+  
+
+  <div id="file-metadata">
+    <nav id="file-list-section" class="section">
+  <h3 class="section-header">Defined In</h3>
+  <ul>
+    <li>mmerge.rb
+  </ul>
+</nav>
+
+    
+  </div>
+
+  <div id="class-metadata">
+    
+    <nav id="parent-class-section" class="section">
+  <h3 class="section-header">Parent</h3>
+  
+  <p class="link">Object
+  
+</nav>
+
+    
+    
+    <!-- Method Quickref -->
+<nav id="method-list-section" class="section">
+  <h3 class="section-header">Methods</h3>
+
+  <ul class="link-list">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-minptrix">#minptrix</a>
+    
+  </ul>
+</nav>
+
+  </div>
+
+  <div id="project-metadata">
+    <nav id="fileindex-section" class="section project-section">
+  <h3 class="section-header">Pages</h3>
+
+  <ul>
+  
+    <li class="file"><a href="../Makefile.html">Makefile</a>
+  
+    <li class="file"><a href="../README_md.html">README</a>
+  
+    <li class="file"><a href="../Rout_txt.html">Rout</a>
+  
+    <li class="file"><a href="../doc/created_rid.html">created.rid</a>
+  
+    <li class="file"><a href="../runrspec.html">runrspec</a>
+  
+    <li class="file"><a href="../testdata_txt.html">testdata</a>
+  
+    <li class="file"><a href="../timing_txt.html">timing</a>
+  
+  </ul>
+</nav>
+
+    <nav id="classindex-section" class="section project-section">
+  <h3 class="section-header">Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../MMerge.html">MMerge</a>
+  
+    <li><a href="../MMerge/MMergeLinear.html">MMerge::MMergeLinear</a>
+  
+    <li><a href="../MMerge/ValueEnumeratorPair.html">MMerge::ValueEnumeratorPair</a>
+  
+    <li><a href="../TestMMerge.html">TestMMerge</a>
+  
+  </ul>
+</nav>
+
+  </div>
+</nav>
+
+<div id="documentation">
+  <h1 class="class">class MMerge::MMergeLinear</h1>
+
+  <div id="description" class="description">
+    
+<p>Supports the linear method for k-way merge.</p>
+
+  </div><!-- description -->
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    <!-- Methods -->
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(enums)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize instance variables.</p>
+
+<pre>Args: enums array of enumerators (external iterators); used for minptrix.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File mmerge.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">enums</span>)
+  <span class="ruby-ivar">@cache</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">enums</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-ivar">@enum_empty</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">enums</span>.<span class="ruby-identifier">size</span>, <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">enums</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">enum</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@cache</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">next</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@cache_min_index</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@cache_min</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- new-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- new-method -->
+
+    
+    </section><!-- public-class-method-details -->
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
+
+    
+      <div id="method-i-minptrix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">minptrix</span><span
+            class="method-args">(enums)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds minimum value for any of an array of enumerators,</p>
+
+<pre>Args: enums array of enumerators of integers (side-effect: their next
+      methods are called)
+Returns: bool minimum value valid, minimum value.</pre>
+
+<p>Execution time is linear in the total number of elements the enumerators
+return.  In finding the minimum value, next is called.  minptrix is
+designed to be called repeatedly, with the same array of enumerators, by
+method multimerge, until calling next has raised a StopIteration exception
+for all the enumerators.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="minptrix-source">
+            <pre><span class="ruby-comment"># File mmerge.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">minptrix</span>(<span class="ruby-identifier">enums</span>)
+  <span class="ruby-comment"># Since enumerators don't have a peek function, the instance variable</span>
+  <span class="ruby-comment"># cache contains values obtained by calling next on each enumerator, or</span>
+  <span class="ruby-comment"># None if a StopIteration exception was raised by the call.  Instance</span>
+  <span class="ruby-comment"># variable cache_min_index is the index of the enumerator from which the</span>
+  <span class="ruby-comment"># last (candidate) minimum value for this call of minptrix was obtained,</span>
+  <span class="ruby-comment"># and cache_min is that value.</span>
+
+  <span class="ruby-identifier">did_examine</span> = <span class="ruby-keyword">false</span>  <span class="ruby-comment"># looked at a value (so that minval is valid)</span>
+  <span class="ruby-identifier">minval</span> = <span class="ruby-constant">MMerge</span><span class="ruby-operator">::</span><span class="ruby-constant">MAXINT</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">enums</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">enum</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">curval</span> = <span class="ruby-ivar">@cache</span>[<span class="ruby-identifier">i</span>]
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">curval</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@enum_empty</span>[<span class="ruby-identifier">i</span>]
+        <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">next</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-ivar">@cache</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-identifier">enum</span>.<span class="ruby-identifier">next</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">StopIteration</span>
+          <span class="ruby-ivar">@enum_empty</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">next</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">curval</span> = <span class="ruby-ivar">@cache</span>[<span class="ruby-identifier">i</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">did_examine</span> = <span class="ruby-keyword">true</span>
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">minval</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">curval</span>
+      <span class="ruby-ivar">@cache</span>[<span class="ruby-identifier">i</span>] = <span class="ruby-keyword">nil</span>  <span class="ruby-comment"># consume the value</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cache_min_index</span>  <span class="ruby-comment"># unconsume if possible</span>
+        <span class="ruby-ivar">@cache</span>[<span class="ruby-ivar">@cache_min_index</span>] = <span class="ruby-ivar">@cache_min</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@cache_min_index</span> = <span class="ruby-identifier">i</span>  <span class="ruby-comment"># store for possible unconsumption</span>
+      <span class="ruby-ivar">@cache_min</span> = <span class="ruby-identifier">curval</span>
+      <span class="ruby-identifier">minval</span> = <span class="ruby-identifier">curval</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">i</span> = <span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@cache_min_index</span> = <span class="ruby-keyword">nil</span>  <span class="ruby-comment"># keep consumed the minval for this call</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">did_examine</span>, <span class="ruby-identifier">minval</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- minptrix-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- minptrix-method -->
+
+    
+    </section><!-- public-instance-method-details -->
+  
+  </section><!-- 5Buntitled-5D -->
+
+</div><!-- documentation -->
+
+
+<footer id="validator-badges">
+  <p><a href="http://validator.w3.org/check/referer">[Validate]</a>
+  <p>Generated by <a href="https://github.com/rdoc/rdoc">RDoc</a> 4.0.1.
+  <p>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish Rdoc Generator</a> 3.
+</footer>
+

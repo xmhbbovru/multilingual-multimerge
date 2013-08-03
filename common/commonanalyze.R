@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# common/commonanalyze.R rev. 31 July 2013 by Stuart Ambler.
+# common/commonanalyze.R rev. 04 August 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE
 
@@ -8,8 +8,6 @@ pq  = "pq"
 lin = "lin"
 use.log=list()
 use.log[pq] = TRUE
-if (basename(getwd()) == "erlang")
-  use.log[pq] = FALSE
 use.log[lin] = FALSE
 t<-read.table('testdata.txt',header=TRUE)
 t$k = 1.0 * t$k  # to avoid integer overflow of product

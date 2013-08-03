@@ -1,4 +1,4 @@
-erlang/timing.txt rev. 31 July 2013 by Stuart Ambler.
+erlang/timing.txt rev. 04 August 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -6,46 +6,34 @@ Example timing data.
 
 Test runs of testmmerge.cc using erl R15B01, times in seconds:
          k   each          n      pq     lin   heapq
-        10  10000     121221    0.17    0.76      NA
-        20  10000     192944    0.28    2.17      NA
-        30  10000     267084    0.47    4.44      NA
-        40  10000     350761    0.76    7.60      NA
-        50  10000     480552    1.17   12.99      NA
-        60  10000     574155    1.66   19.10      NA
-        70  10000     682129    1.98   25.58      NA
-        80  10000     786289    2.84   35.08      NA
-        90  10000     866374    2.96   42.97      NA
-       100  10000     970734    3.56   52.06      NA
-       160  10000    1604465    8.78  139.87      NA
-      1000  10000    9695026  313.93      NA      NA
-       100  20000    1941468    7.73  117.25      NA
-       100  40000    3882939   18.13      NA      NA
-       100  60000    5824409   27.32      NA      NA
-       100  80000    7765875   35.96      NA      NA
-       100 100000    9707350   39.80      NA      NA
+        10  10000     121221    0.29    0.77      NA
+        20  10000     192944    0.48    2.20      NA
+        30  10000     267084    0.68    4.55      NA
+        40  10000     350761    0.98    7.61      NA
+        50  10000     480552    1.46   12.97      NA
+        60  10000     574155    1.71   18.72      NA
+        70  10000     682129    2.15   25.48      NA
+        80  10000     786289    2.54   33.96      NA
+        90  10000     866374    2.88   51.48      NA
+       100  10000     970734    3.20   57.80      NA
+       160  10000    1604465    5.73  142.00      NA
+      1000  10000    9695026   49.65      NA      NA
+       100  20000    1941468    6.59  113.57      NA
+       100  40000    3882939   13.71      NA      NA
+       100  60000    5824409   22.24      NA      NA
+       100  80000    7765875   29.08      NA      NA
+       100 100000    9707350   37.14      NA      NA
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
-The statistical language R gave a parabolic looking curve not too far from a
-straight line for the plot of pq (priority queue version runtime) vs.
-log (k) * n, except for an outlier for k = 1000.  Further investigation (rows
-1-20 for k, 21-25 for n, in testdatahand.txt; analyzed using a modified
-../common/analyze.R) showed the fit to k * n much better, a reasonably
-straight line.  Thus ../common/commonanalyze.R and ../common/analyze.R were
-changed correspondingly.  Apparently this Erlang code sample has different
-timing characteristics than the imperative language ones, for which
-log (k) * n seemed to work well enough.
+The statistical language R gave a good looking straight line for the plot of pq
+(priority queue version runtime) vs. log (k) * n; reasonable for lin vs. k * n.
 
-For lin vs. k * n, there was a reasonable straight line as with the other
-language samples (k = 1000 was not tested).
+Doing the fitting and plots can be done with just the first 11 rows:
+pq  ~=   9.957e-02 +   6.968e-07 * log(k) * n
+lin ~=   5.504e-01 +   5.597e-07 *     k  * n
 
-Doing the fitting and plots can be done with just the first 11 rows (from
-data from another run):
-pq  ~=   2.806e-01 +   3.370e-08 * k * n
-lin ~=  -2.197e-01 +   5.448e-07 * k * n
-
-The erlang version for the priority queue method about a fifth to a fiftieth,
-or omitting the outlier k = 1000, a fifth to a twelfth as fast as the C version,
-and for the linear method, a forty-third to a seventy-sixth; from
-common/comparetoc.txt for another run.
+The erlang version for the priority queue method about an eighth to a fifteenth
+as fast as the C version, and for the linear method, a thirty-ninth to a
+sixty-first; from common/comparetoc.txt.
 
 The sorted output checked Ok vs. original sorted input.
