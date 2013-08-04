@@ -1,4 +1,4 @@
-java/timing.txt rev. 31 July 2013 by Stuart Ambler.
+java/timing.txt rev. 04 August 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -29,10 +29,11 @@ Note: there was wide variability at times; for instance the 1000 10000 test
 took more often 3+ seconds, but the first time after a new version 9 seconds.
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
-The statistical language R gave a straight line with exceptions! plotting pq
-(priority queue version runtime) vs. log (k) * n. Similarly with lin vs. k * n.
-Or, the fitting and plots can be done with just the first 11 rows, resulting
-in smaller residuals and:
+The statistical language R gave something not too far from a straight line
+plotting lin vs. k * n.  There is more variation plotting pq (priority queue
+version runtime) vs. log (k) * n, but still the actual values seem to be within
+about a factor of two of the predicted.  The fitting and plots can be done with
+just the first 11 rows, resulting in smaller residuals and:
 pq  ~=   5.156e-02 +   4.432e-08 * log(k) * n
 lin ~=  -2.491e-01 +   2.658e-08 *     k  * n
 

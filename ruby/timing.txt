@@ -1,4 +1,4 @@
-ruby/timing.txt rev. 31 July 2013 by Stuart Ambler.
+ruby/timing.txt rev. 04 August 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -26,10 +26,14 @@ made with version different only in this comment):
     100 100000    9993974  104.30      NA      NA
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
-The statistical language R gave somewhat like a straight line for the
-plot of pq (priority queue version runtime) vs. log (k) * n.  Similarly lin vs.
-k * n (closer to straight).  Or, do the fitting and plots with just the first
-11 rows, resulting in smaller residuals and:
+The statistical language R gave something not far from a straight line for the
+part of the plot of pq (priority queue version runtime) vs. log (k) * n for
+which "each" was fixed at 10000.  When "each" varied, the actual values were
+above the straight line that would be drawn for the each=10000 points.  The
+plot of lin vs. k * n looked reasonably like a straight line.
+
+The fitting and plots can be done with just the first 11 rows, resulting in
+smaller residuals and:
 pq  ~=   3.099e-01 +   1.058e-06 * log(k) * n
 lin ~=   8.246e-01 +   2.052e-07 *     k  * n
 

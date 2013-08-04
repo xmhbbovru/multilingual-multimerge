@@ -1,4 +1,4 @@
-erlang/timing.txt rev. 03 August 2013 by Stuart Ambler.
+erlang/timing.txt rev. 04 August 2013 by Stuart Ambler.
 Copyright (c) 2013 Stuart Ambler.
 Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -25,8 +25,12 @@ Test runs of testmmerge.cc using erl R15B01, times in seconds:
        100 100000    9707350   18.72      NA      NA
 Thinkpad SL-510 with 8GB memory, Lubuntu 12.10.
 
-The statistical language R gave a good looking straight line for the plot of pq
-(priority queue version runtime) vs. log (k) * n; reasonable for lin vs. k * n.
+The statistical language R gave a reasonable looking straight line for the part
+of the plot of pq (priority queue version runtime) vs. log (k) * n for which
+"each" was fixed at 10000.  Perhaps (only a guess) this had something to do
+with Erlang internal processing of lists or the like.  When "each" varied, the
+actual values were above the straight line that would be drawn for the
+each=10000 points.  The plot of lin vs. k * n was reasonably on a straight line.
 
 Doing the fitting and plots can be done with just the first 11 rows:
 pq  ~=   6.351e-02 +   3.394e-07 * log(k) * n
