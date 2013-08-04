@@ -1,4 +1,4 @@
-% erlang/testmmerge.erl rev. 04 August 2013 by Stuart Ambler.
+% erlang/testmmerge.erl rev. 03 August 2013 by Stuart Ambler.
 % Tests erlang/mmerge.erl.
 % Copyright (c) 2013 Stuart Ambler.
 % Distributed under the Boost License in the accompanying file LICENSE.
@@ -138,24 +138,27 @@ generate_data(Nr_inputs, Ave_input_len, Lin) ->
                                          [{Start, Len} | List]}
                                   end,
                                   {1, []}, Lens),
-    Temp = lists:foldl(fun({Start, Len}, List)
-                          -> [list_iter:iterator(lists:sort(lists:sublist(Input,
-                                                                          Start,
-                                                                          Len)))
-                              | List]
-                       end,
-                       [], lists:reverse(Start_lens)),
-    Arrays = lists:reverse(Temp),
+    % The sublist calls take much of the long execution time for generate_data.
+    List_of_lists = lists:foldl(fun({Start, Len}, List)
+                                   -> [lists:sort(lists:sublist(Input,
+                                                                Start, Len))
+                                       | List]
+                                end,
+                                [], Start_lens),  % reverses
+    % The name Arrays is used for consistency with other language versions;
+    % it is a list of iterators to lists.
+    Arrays = lists:foldl(fun(List, Accum_iter_list)
+                            -> [list_iter:iterator(List) | Accum_iter_list]
+                         end,
+                         [], List_of_lists), % reverses again, net no reverse
     if
         Lin ->
-            Temp_lin = lists:foldl(fun({Start, Len}, List)
-                          -> [list_iter:iterator(lists:sort(lists:sublist(Input,
-                                                                          Start,
-                                                                          Len)))
-                              | List]
-                                   end,
-                                   [], lists:reverse(Start_lens)),
-            Arrays_lin = lists:reverse(Temp_lin);
+            Arrays_lin = lists:foldl(fun(List, Accum_iter_list)
+                                        -> [list_iter:iterator(List)
+                                            | Accum_iter_list]
+                                     end,
+                                     [], List_of_lists); % reverses again,
+                                                         % net no reverse
         true ->
             Arrays_lin = []
     end,

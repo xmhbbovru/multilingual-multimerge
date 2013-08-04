@@ -1,5 +1,5 @@
 #!/usr/bin/env Rscript
-# common/commonanalyze.R rev. 04 August 2013 by Stuart Ambler.
+# common/commonanalyze.R rev. 03 August 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE
 

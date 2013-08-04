@@ -1,3 +1,7 @@
+% erlang/heaps.erl rev. 03 August 2013 by Stuart Ambler.
+% Implementation of pairing heaps; function pair fixed for logarithmic runtime.
+% Copyright (c) 2013 Stuart Ambler.
+
 % Copyright (c) 2010-2011, Lars Buitinck
 % May be used, redistributed and modified under the terms of the
 % GNU Lesser General Public License (LGPL), version 2.1 or later
@@ -90,4 +94,4 @@ pair([]) -> nil;
 pair([Q]) -> Q;
 pair([Q0, Q1 | Qs]) ->
     Q2 = meld(Q0, Q1),
-    pair([Q2 | Qs]).
+    meld(Q2, pair(Qs)).  % Changed from pair([Q2 | Qs]) by Stuart Ambler.

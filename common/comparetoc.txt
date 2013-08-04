@@ -11,13 +11,13 @@
 [1] ""
 [1] " pq full data execution time ratio erlang to c"
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  7.615   8.043   8.167   8.534   8.484  14.000 
-[1] "regression coeff. ratio 8.94513"
+  4.504   5.595   6.000   6.429   6.788  11.000 
+[1] "regression coeff. ratio 6.44743"
 [1] ""
 [1] " pq 11 point execution time ratio erlang to c"
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  7.615   7.875   8.161   8.610   8.293  14.000 
-[1] "regression coeff. ratio 8.38115"
+  4.846   5.495   5.889   6.281   6.308  11.000 
+[1] "regression coeff. ratio 5.51541"
 [1] ""
 [1] ""
 [1] " pq full data execution time ratio java to c"
@@ -66,13 +66,13 @@
 [1] ""
 [1] "lin full data execution time ratio erlang to c"
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-  37.50   46.29   51.47   49.97   53.55   60.51       5 
-[1] "regression coeff. ratio 57.3011"
+  37.00   45.44   50.07   48.46   51.41   54.54       5 
+[1] "regression coeff. ratio 56.9048"
 [1] ""
 [1] "lin 11 point execution time ratio erlang to c"
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  37.50   45.90   51.33   49.66   52.88   60.51 
-[1] "regression coeff. ratio 56.3141"
+  37.00   45.27   49.11   48.19   51.38   54.54 
+[1] "regression coeff. ratio 56.6291"
 [1] ""
 [1] ""
 [1] "lin full data execution time ratio java to c"

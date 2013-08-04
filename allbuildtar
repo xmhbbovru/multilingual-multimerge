@@ -1,5 +1,5 @@
 #!/bin/sh
-# allbuildtar rev. 04 August 2013 by Stuart Ambler.
+# allbuildtar rev. 03 August 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -7,7 +7,7 @@ tar czvf stuartsample.tar.gz \
 c/Makefile c/README.md c/timing.txt c/pqueue.h c/pqueue.c c/mmerge.h c/mmerge.c c/testmmerge.h c/testmmerge.c c/testmmergemain.c c/checktestmmerge.c c/buildmmerge c/testmmergemain c/checktestmmerge c/testdata.txt c/Rout.txt c/*.pdf c/runvalgrind c/valgrindout.txt c/vgsupp \
 cc/Makefile cc/README.md cc/timing.txt cc/mmerge.h cc/mmerge.cc cc/testmmerge.h cc/testmmerge.cc cc/testmmergemain.cc cc/cppunittestmmerge.cc cc/buildmmerge cc/testmmergemain cc/cppunittestmmerge cc/testdata.txt cc/Rout.txt cc/*.pdf cc/runvalgrind cc/valgrindout.txt cc/vgsupp \
 common/* \
-erlang/Makefile erlang/README.md erlang/timing.txt erlang/list_iter.erl erlang/mmerge.erl erlang/testmmerge.erl erlang/test_testmmerge.erl erlang/heaps.erl erlang/getopt.erl erlang/getopt.app.src erlang/skewbinheap.erl erlang/*.beam common/* common/* erlang/testdata.txt erlang/testdatahand.txt erlang/Rout.txt erlang/*.pdf erlang/runfprof.erl erlang/doc/* \
+erlang/Makefile erlang/README.md erlang/timing.txt erlang/priority_queue.txt erlang/list_iter.erl erlang/mmerge.erl erlang/testmmerge.erl erlang/test_testmmerge.erl erlang/heaps.erl erlang/getopt.erl erlang/getopt.app.src erlang/*.beam common/* erlang/testdata.txt erlang/testdatahand.txt erlang/Rout.txt erlang/*.pdf erlang/runfprof.erl erlang/doc/* \
 java/Makefile java/README.md java/timing.txt java/com/zulazon/samples/* java/buildmmerge java/runmmerge java/testdata.txt java/Rout.txt java/*.pdf java/makejavadoc java/doc/* java/runjunittest \
 python/Makefile python/README.md python/timing.txt python/mmerge.py python/testmmerge.py python/testdata.txt python/Rout.txt python/*.pdf python/mmerge.html python/testmmerge.html \
 ruby/Makefile ruby/README.md ruby/timing.txt ruby/mmerge.rb ruby/testmmerge.rb ruby/testdata.txt ruby/Rout.txt ruby/*.pdf ruby/doc/* ruby/runrspec ruby/spec/* \

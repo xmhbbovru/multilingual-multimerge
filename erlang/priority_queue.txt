@@ -1,0 +1,59 @@
+erlang/priority_queue.txt rev. 04 August 2013 by Stuart Ambler.
+Copyright (c) 2013 Stuart Ambler.
+Distributed under the Boost License in the accompanying file LICENSE.
+
+heaps.erl is modified from https://gist.github.com/larsmans/1248317, under LGPL
+2.1 license; it's only necessary to link to its object code heaps.beam file and
+the original version works just as well except slower.  The reason for the
+modification, and an alternative, are as follows.
+
+An earlier version used the pairing heap in heaps.erl without change, but was
+slower: when using it, the delete_min runtime was apparently nearly linear in k,
+rather than logarithmic as desired.  Profiling testmmerge:testmmerge runs with
+nr_inputs=100 and 200, ave_input_len=100, led to the conclusion that the ratio
+of number of calls to the 'third' variant of pair/1 to the number of calls to
+delete_min (which accounted for most of the time of the merge) went up by a
+factor of 1.93, whereas the ratio log 200/log 100 is only 1.15.  The time per
+call of pair/1 didn't change much.  The number of calls to delete min went up
+as expected, about the desired ratio of total lengths (the actual total lengths
+not being exactly as desired due to random generation of individual lengths).
+
+The paper
+http://www.cs.cmu.edu/afs/cs.cmu.edu/user/sleator/www/papers/pairing-heaps.pdf
+introducing pairing heaps, states that the worst case performance for
+delete_min is linear in k, but the amortized performance is logarithmic in k
+for a certain rule of combining (pairing) the heaps (page 118): the heaps
+should be ordered by recency of addition, and the resulting pairs left to right
+in this order paired, after which each remaining heap should be paired to the
+last one right to left.  (This combining rule is also given at
+http://en.wikipedia.org/wiki/Pairing_heap).
+
+Following the recursion for the original version of heaps:pair,
+pair([Q0, Q1, Q2, Q3, Q4]) expands to:
+Q01 = meld(Q0, Q1)
+pair([Q01, Q2, Q3, Q4])
+Q012 = meld(Q0, Q2)
+pair([Q012, Q3, Q4])
+Q0123 = meld(Q012, Q3)
+pair([Q0123, Q4])
+Q01234=meld(Q0123, Q4)
+pair([Q01234])
+Q01234
+which amounts to using the "naive combining rule" on (page 116), which if the
+analysis is valid for the Erlang primitives used, gives runtime linear in k.
+
+In heaps.erl, if the last line of
+pair([Q0, Q1 | Qs]) ->
+    Q2 = meld(Q0, Q1),
+    pair([Q2 | Qs]).
+is changed to
+    meld(Q2, pair(Qs)).
+which corresponds to the combining rule prescribed by the paper and wikipedia
+for the logarithmic runtime, the measured runtimes and values from a fitted
+logarithmic function visually agree fairly well (a straight line on the graph).
+
+Between using the original and modified versions of heaps.erl in mmerge.erl,
+the code used the .beam file from compiling skewbinheap.erl, from
+https://github.com/okeuday/skewbinheap . I found no license for that, so did
+not distribute it.  It gave apparently logarithmic runtime, but slower than
+using the modified heaps.erl.
