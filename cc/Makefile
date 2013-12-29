@@ -1,4 +1,4 @@
-# cc/Makefile rev. 24 July 2013 by Stuart Ambler.
+# cc/Makefile rev. 28 December 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -6,7 +6,7 @@ SHELL		= /bin/sh
 CC		= g++
 CCDEBUG		= -g
 CCFLAGS		= --std=c++11
-CCLIBS		= -largtable2
+CCLIBS		= -largtable2 -lpthread
 CCTESTLIBS	= -lcppunit
 CCMERGESRC	= mmerge.cc testmmerge.cc
 CCMERGEHDR	= mmerge.h testmmerge.h

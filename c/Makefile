@@ -1,12 +1,15 @@
-# c/Makefile rev. 24 July 2013 by Stuart Ambler.
+# c/Makefile rev. 28 December 2013 by Stuart Ambler.
 # Copyright (c) 2013 Stuart Ambler.
 # Distributed under the Boost License in the accompanying file LICENSE.
+
+# Between gcc 4.7.2 and gcc 4.8.1, needed to add -pthread and -lrt, and
+# put $(CLIBS) after -o argument
 
 SHELL		= /bin/sh
 C		= gcc
 CDEBUG		= -g
 CFLAGS		= -x c -std=c99
-CLIBS		= -largtable2 -lm
+CLIBS		= -largtable2 -lm -lpthread -lrt
 CTESTLIBS	= -lcheck
 CMERGESRC	= pqueue.c mmerge.c testmmerge.c
 CMERGEHDR	= pqueue.h mmerge.h testmmerge.h
@@ -28,8 +31,8 @@ $(TIMETEST):	$(TIMETEST).c $(CMERGESRC) $(CMERGEHDR)
 		$(C) $(CFLAGS) $(CMERGESRC) $@.c $(CLIBS) -o $@
 
 $(TESTTEST):	$(TESTTEST).c $(CMERGESRC) $(CMERGEHDR)
-		$(C) $(CFLAGS) $(CMERGESRC) $@.c $(CLIBS) \
-		$(CTESTLIBS) -o $@
+		$(C) $(CFLAGS) $(CMERGESRC) $@.c \
+		$(CTESTLIBS) -o $@ $(CLIBS)
 
 testdata.txt:	$(TIMETEST)
 		$(RUNTESTS) ./$(TIMETEST) >$@

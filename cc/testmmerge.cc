@@ -1,4 +1,4 @@
-// cc/testmmerge.cc rev. 29 July 2013 by Stuart Ambler.  Tests cc/mmerge.cc.
+// cc/testmmerge.cc rev. 28 December 2013 by Stuart Ambler.  Tests cc/mmerge.cc.
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -20,13 +20,13 @@ namespace mm = ::com_zulazon_samples_cc_mmerge;
 // Print program usage.
 
 void usage() {
-  const char *s = "Test mmerge.rb k-way merge.\n"
+  const char *s = "Test mmerge k-way merge.\n"
 "\n"
 "Usage:\n"
-"  ./testmmerge.rb [-l]\n"
-"  ./testmmerge.rb <nr_inputs> [-l]\n"
-"  ./testmmerge.rb <nr_inputs> <ave_input_len> [-l]\n"
-"  ./testmmerge.rb -h | --help\n"
+"  ./testmmerge [-l]\n"
+"  ./testmmerge <nr_inputs> [-l]\n"
+"  ./testmmerge <nr_inputs> <ave_input_len> [-l]\n"
+"  ./testmmerge -h | --help\n"
 "\n"
 "Arguments:\n"
 "  <nr_inputs>      Number of sorted input arrays to generate; must be\n"

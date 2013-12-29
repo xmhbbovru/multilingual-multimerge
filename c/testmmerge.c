@@ -1,4 +1,4 @@
-// c/testmmerge.c rev. 29 July 2013 by Stuart Ambler.  Tests c/mmerge.c
+// c/testmmerge.c rev. 28 December 2013 by Stuart Ambler.  Tests c/mmerge.c
 // Copyright (c) 2013 Stuart Ambler.
 // Distributed under the Boost License in the accompanying file LICENSE.
 
@@ -20,13 +20,13 @@
 // Prints usage of program.
 
 void usage() {
-  const char *s = "Test mmerge.rb k-way merge.\n"
+  const char *s = "Test mmerge k-way merge.\n"
 "\n"
 "Usage:\n"
-"  ./testmmerge.rb [-l]\n"
-"  ./testmmerge.rb <nr_inputs> [-l]\n"
-"  ./testmmerge.rb <nr_inputs> <ave_input_len> [-l]\n"
-"  ./testmmerge.rb -h | --help\n"
+"  ./testmmerge [-l]\n"
+"  ./testmmerge <nr_inputs> [-l]\n"
+"  ./testmmerge <nr_inputs> <ave_input_len> [-l]\n"
+"  ./testmmerge -h | --help\n"
 "\n"
 "Arguments:\n"
 "  <nr_inputs>      Number of sorted input arrays to generate; must be\n"
